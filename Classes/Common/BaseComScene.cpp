@@ -22,7 +22,7 @@ bool BaseComScene::init()
 BaseComScene::~BaseComScene()
 {
     for (std::string value : notificationValues) {
-        CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, value.c_str());
+        CCNotificationCenter::__NotificationCenter().removeObserver(this, value.c_str());
     }
 }
 

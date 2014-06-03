@@ -27,8 +27,8 @@ return node;\
 }\
 
 typedef struct {
-    cocos2d::CCRect original;
-    cocos2d::CCRect actual;
+    cocos2d::Rect original;
+    cocos2d::Rect actual;
 }ColliderBox;
 
 #define FIX_VALUE(_value, _min, _max) \

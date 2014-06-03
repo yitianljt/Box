@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 
 
-class BaseComScene : public cocos2d::CCScene{
+class BaseComScene : public cocos2d::Scene{
 
     
 private:

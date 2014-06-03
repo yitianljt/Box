@@ -50,7 +50,6 @@ bool LayerGame::init()
     _spRuner->setRotation(45);
     addChild(_spRuner);
     
-    this->setTouchEnabled(true);
     //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
     
     //this->m_pSpriteBatchNode=CCSpriteBatchNode::create("main.png", 100);
@@ -60,8 +59,8 @@ bool LayerGame::init()
     start();
     
     glLineWidth( 5.0f );
-    ccDrawColor4F(255,0,0,40);
-    ccDrawLine(ccp(0, 0), ccp(200, 400));
+    cocos2d::DrawPrimitives::setDrawColor4F(255,0,0,40);
+    DrawPrimitives::drawLine(Point(0, 0), Point(200, 400));
     /*
     
     CCLayerColor* layerBg = CCLayerColor::create(ccc4(0, 255, 255, 255), sizeWin.width, sizeWin.height);
@@ -77,6 +76,17 @@ bool LayerGame::init()
     menu->setPosition(ccp(sizeWin.width/2, sizeWin.height/2));
     this->addChild(menu);
     */
+    
+    
+    
+    auto dispatcher = Director::getInstance()->getEventDispatcher();
+	auto listener = EventListenerTouchOneByOne::create();
+	listener->onTouchBegan = CC_CALLBACK_2(LayerGame::onTouchBegan,this);
+	listener->onTouchMoved = CC_CALLBACK_2(LayerGame::onTouchMoved,this);
+	listener->onTouchEnded = CC_CALLBACK_2(LayerGame::onTouchEnded,this);
+	listener->setSwallowTouches(true);//不向下传递触摸
+	dispatcher->addEventListenerWithSceneGraphPriority(listener,this);
+
     
     start();
     
@@ -151,12 +161,12 @@ void LayerGame::addBlock(float fDelta)
     //spBlock->setRotation(45);
     
     m_pSpriteBatchNode->addChild(spBlock);
-    spBlock->setPosition(ccp(BSWinSize().width, 400));
+    spBlock->setPosition(Point(BSWinSize().width, 400));
     spBlock->move(-3.0f);
 }
 
 
-bool LayerGame::isCollison(CCSprite* spRuner,CCSprite* spBlock)
+bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
 {
 //    if ((sp1->getPositionX()-sp2->getPositionX()) * (sp1->getPositionX()-sp2->getPositionX()) < (sp1->getPositionY()- sp2->getPositionY())* (sp1->getPositionY()-sp2->getPositionY()) < (sp1->getCollderBox().actual.size.width)*(sp1->getCollderBox().actual.size.width)) {
 //        CCLOG("Test");
