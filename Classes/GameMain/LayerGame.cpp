@@ -6,17 +6,17 @@
 //
 //
 
-#include "LayerGame.h"
-#include "Common.h"
-//#include "PlayVideo.h"
-#include "GameControl.h"
 #include "BaseComScene.h"
-//#include "GroundLayer.h"
+#include "Common.h"
 #include "CommonTool.h"
+#include "CommonTool.h"
+#include "ComSound.h"
+#include "GameControl.h"
+#include "LayerGame.h"
 #include "SpriteRunner.h"
 #include "SpriteBlock.h"
-#include "CommonTool.h"
 #include <vector>
+
 
 USING_NS_CC;
 
@@ -38,7 +38,7 @@ bool LayerGame::init()
         return false;
     }
     //背景
-    LayerGradient* layer1 = LayerGradient::create(Color4B(160,210,210,255), Color4B(110,210,190,255), Point(.0f, .0f));
+    LayerGradient* layer1 = LayerGradient::create(Color4B(60,110,110,255), Color4B(110,210,190,255), Point(.0f, .0f));
     addChild(layer1, 0);
     
 //    GroundLayer* layerGround = GroundLayer::create();
@@ -112,6 +112,7 @@ void LayerGame::callbackStart(Ref* obj)
 
 void LayerGame::start()
 {
+    playBgMusic();
     this->schedule(schedule_selector(LayerGame::update), 0.1f);
     this->schedule(schedule_selector(LayerGame::addBlock), 3.0f );
 }
@@ -193,5 +194,15 @@ bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
 void LayerGame::gameover()
 {
     
+}
+
+void LayerGame::playBgMusic()
+{
+    ComSound::shared()->playMusic("music/Bg.m4a");
+}
+
+void LayerGame::stopBgMusic()
+{
+    ComSound::shared()->stopMusic();
 }
 

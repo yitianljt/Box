@@ -40,7 +40,7 @@ public:
     virtual void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
     virtual void onTouchMoved(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
 
-
+    
     
     void callbackStart(cocos2d::Ref* obj);
     bool isCollison(cocos2d::Sprite* sp1,cocos2d::Sprite* sp2);
@@ -48,6 +48,9 @@ public:
     void gameover();
     
 private:
+    
+    void playBgMusic();
+    void stopBgMusic();
     SpriteRunner* _spRuner;
     cocos2d::SpriteBatchNode* m_pSpriteBatchNode;
 

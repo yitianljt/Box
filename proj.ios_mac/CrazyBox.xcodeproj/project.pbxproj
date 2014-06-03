@@ -72,6 +72,7 @@
 		A9A50973193D78BF00267F82 /* LayerGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A5096E193D78BF00267F82 /* LayerGame.cpp */; };
 		A9A50974193D78BF00267F82 /* SceneGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50970193D78BF00267F82 /* SceneGame.cpp */; };
 		A9A50976193D7F4600267F82 /* player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50975193D7F4600267F82 /* player@2x.png */; };
+		A9A5097B193D95D500267F82 /* ComSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50979193D95D500267F82 /* ComSound.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -290,6 +291,8 @@
 		A9A50970193D78BF00267F82 /* SceneGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGame.cpp; sourceTree = "<group>"; };
 		A9A50971193D78BF00267F82 /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		A9A50975193D7F4600267F82 /* player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player@2x.png"; sourceTree = "<group>"; };
+		A9A50979193D95D500267F82 /* ComSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComSound.cpp; sourceTree = "<group>"; };
+		A9A5097A193D95D500267F82 /* ComSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSound.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -539,6 +542,8 @@
 				A9A50965193D77C900267F82 /* BaseComScene.h */,
 				A9A50961193D779D00267F82 /* CommonTool.cpp */,
 				A9A50962193D779D00267F82 /* CommonTool.h */,
+				A9A50979193D95D500267F82 /* ComSound.cpp */,
+				A9A5097A193D95D500267F82 /* ComSound.h */,
 			);
 			name = Common;
 			path = ../Classes/Common;
@@ -772,6 +777,7 @@
 				A9A50974193D78BF00267F82 /* SceneGame.cpp in Sources */,
 				A9A50973193D78BF00267F82 /* LayerGame.cpp in Sources */,
 				A9A50963193D779D00267F82 /* CommonTool.cpp in Sources */,
+				A9A5097B193D95D500267F82 /* ComSound.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				A9A5095F193D775D00267F82 /* SceneLaunch.cpp in Sources */,

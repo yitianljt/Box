@@ -11,6 +11,23 @@
 
 #include "cocos2d.h"
 
+#define SINGLETON(className)\
+public:\
+className(){};\
+virtual bool init();\
+public:\
+static className* _shared;\
+static className* shared(){\
+if(!_shared) {_shared = new className();_shared->init();}\
+return _shared;\
+};\
+void destroy() {if(_shared) {delete _shared; _shared = NULL;}};\
+
+
+#define SINGLETON_IMPL(className)\
+className* className::_shared = NULL;\
+
+
 
 #define COM_CREATE_FUNC(className)\
 public:\
@@ -36,6 +53,9 @@ if (_value < _min)        \
 _value = _min;        \
 else if (_value > _max)   \
 _value = _max;        \
+
+
+
 
 
 #endif
