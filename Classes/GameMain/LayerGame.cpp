@@ -168,7 +168,7 @@ void LayerGame::addBlock(float fDelta)
 
 
 bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
-{    
+{
     if (spRuner->boundingBox().intersectsRect(spBlock->boundingBox()) )
     {
         _spRuner->dead();

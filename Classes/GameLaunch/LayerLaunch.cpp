@@ -22,18 +22,21 @@ LayerLaunch::~LayerLaunch(){}
 
 bool LayerLaunch::init()
 {
-    CCSize sizeWin = CCDirector::sharedDirector()->getWinSize();
-    if (!CCLayer::init()) {
+    Size sizeWin = Director::getInstance()->getWinSize();
+    if (!Layer::init()) {
         return false;
     }
     
 
-    LayerColor* layerBg = CCLayerColor::create(ccc4(255, 255, 0, 0), sizeWin.width, sizeWin.height);
+    LayerColor* layerBg = CCLayerColor::create(Color4B(255, 255, 0, 0), sizeWin.width, sizeWin.height);
 
     addChild(layerBg,0);
-    Sprite* spNormal = CCSprite::create();
-    MenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this
-                                                       , menu_selector(LayerLaunch::callbackStart));
+    Sprite* spNormal = Sprite::create();
+    //MenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this, menu_selector(LayerLaunch::callbackStart));
+    MenuItemLabel* btnItem = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 40), [](Object* sender){
+    Director::getInstance()->replaceScene(GameControl::scene(kSceneGame));
+});
+    
     CCMenuItemSprite* btnStart = CCMenuItemSprite::create(spNormal,spNormal,this,menu_selector(LayerLaunch::callbackStart));
     
     //btnStart->setPosition(ccp(sizeWin.width/2,sizeWin.height/2));
@@ -52,10 +55,12 @@ bool LayerLaunch::init()
 
 void LayerLaunch::onEnter()
 {
-    CCLayer::onEnter();
+    Layer::onEnter();
 }
 void LayerLaunch::onExit()
-{}
+{
+    Layer::onExit();
+}
 
 void LayerLaunch::callbackStart(CCObject* obj)
 {
