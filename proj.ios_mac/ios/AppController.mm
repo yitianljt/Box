@@ -27,6 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "GADBannerView.h"
 
 @implementation AppController
 
@@ -56,6 +57,19 @@ static AppDelegate s_sharedApplication;
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     _viewController.wantsFullScreenLayout = YES;
     _viewController.view = eaglView;
+    
+    bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    bannerView_.delegate = self;
+    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+    bannerView_.adUnitID = @"YOUR_ID";
+    
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    bannerView_.rootViewController = _viewController;
+    [_viewController.view addSubview:bannerView_];
+    
+    GADRequest* adRequest = [GADRequest request];
+    [bannerView_ loadRequest:adRequest];
 
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
