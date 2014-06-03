@@ -28,11 +28,11 @@ bool LayerLaunch::init()
     }
     
 
-    CCLayerColor* layerBg = CCLayerColor::create(ccc4(255, 255, 0, 0), sizeWin.width, sizeWin.height);
+    LayerColor* layerBg = CCLayerColor::create(ccc4(255, 255, 0, 0), sizeWin.width, sizeWin.height);
 
     addChild(layerBg,0);
-    CCSprite* spNormal = CCSprite::create();
-    CCMenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this
+    Sprite* spNormal = CCSprite::create();
+    MenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this
                                                        , menu_selector(LayerLaunch::callbackStart));
     CCMenuItemSprite* btnStart = CCMenuItemSprite::create(spNormal,spNormal,this,menu_selector(LayerLaunch::callbackStart));
     

@@ -18,6 +18,7 @@ USING_NS_CC;
 
 
 
+
 Size BSWinSize() {
     return CCDirector::getInstance()->getWinSize();
 }

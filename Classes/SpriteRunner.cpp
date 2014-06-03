@@ -72,39 +72,35 @@ void SpriteRunner::dead()
     //this->getParent()->addChild(m_emitter1);
 }
 
+void SpriteRunner::callbackJump()
+{
+    this->_runnerState = kRunerWalk;
+}
+
 
 
 void SpriteRunner::jump()
 {
-    this->stopAllActions();
-    
-    bool bDouble = true;
-//    if (!((bDouble && _runnerState == kRunerJump) || _runnerState == kRunerWalk )) {
-//        return;
-//    }
-    
     if (_runnerState == kRunerWalk) {
         _ptJump = this->getPosition();
     }
     else if (_runnerState == kRunerJump)
     {
-        //this->setRotation(0.0f);
+        this->setRotation(0.0f);
+        return;
     }
+    this->stopAllActions();
+
     _runnerState = kRunerJump;
-    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, 200, 1 );
+    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+20, 1 );
     ActionInterval * rotateBy1 = RotateBy::create(0.5, 180);
     ActionInterval * rotateBy2 = RotateBy::create(0.5, 180);
 
+
     
-
     FiniteTimeAction * spawn =CCSpawn::create(jumpto ,Sequence::create(rotateBy1,rotateBy2,NULL),NULL);
+    this->runAction(Sequence::create(spawn,CallFunc::create(this,callfunc_selector(SpriteRunner::callbackJump)),
+                                     NULL,NULL));
 
-    this->runAction(Sequence::create(spawn,
-                                       [this]{
-                                           this->setRotation(0);
-                                           _runnerState = kRunerWalk;
-                                       
-                                       }
-                                       ,NULL));
     
 }

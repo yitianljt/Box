@@ -17,6 +17,8 @@
 #include <functional>
 using namespace std;
 
+
+
 cocos2d::Size BSWinSize();
 
 

@@ -168,17 +168,7 @@ void LayerGame::addBlock(float fDelta)
 
 
 bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
-{
-//    if ((sp1->getPositionX()-sp2->getPositionX()) * (sp1->getPositionX()-sp2->getPositionX()) < (sp1->getPositionY()- sp2->getPositionY())* (sp1->getPositionY()-sp2->getPositionY()) < (sp1->getCollderBox().actual.size.width)*(sp1->getCollderBox().actual.size.width)) {
-//        CCLOG("Test");
-//        return true;
-//    }
-    
-    
-    CCLOG("pt.x=%f,pt.y=%f, w=%f ,h=%f",spRuner->boundingBox().origin.x,spRuner->boundingBox().origin.y,spRuner->boundingBox().size.width,spRuner->boundingBox().size.height);
-    
-    CCLOG("pt.x=%f,pt.y=%f, w=%f ,h=%f",spBlock->boundingBox().origin.x,spBlock->boundingBox().origin.y,spBlock->boundingBox().size.width,spBlock->boundingBox().size.height);
-    
+{    
     if (spRuner->boundingBox().intersectsRect(spBlock->boundingBox()) )
     {
         _spRuner->dead();

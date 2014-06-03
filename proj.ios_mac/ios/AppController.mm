@@ -61,7 +61,7 @@ static AppDelegate s_sharedApplication;
     bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     bannerView_.delegate = self;
     // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
-    bannerView_.adUnitID = @"YOUR_ID";
+    bannerView_.adUnitID = @"ca-app-pub-7985828646231932/3280549606";
     
     // Let the runtime know which UIViewController to restore after taking
     // the user wherever the ad goes and add it to the view hierarchy.
