@@ -28,6 +28,7 @@ COM_CREATE_FUNC_IMPL(LayerGame);
 LayerGame::LayerGame()
 {
     m_pSpriteBatchNode = NULL;
+    _gameLevel = kLevel1;
 }
 LayerGame::~LayerGame(){}
 
@@ -47,7 +48,7 @@ bool LayerGame::init()
     _spRuner = SpriteRunner::create();
     
     _spRuner->setPosition(Point(200,400));
-    _spRuner->setRotation(45);
+    //_spRuner->setRotation(45);
     addChild(_spRuner);
     
     //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
@@ -113,7 +114,7 @@ void LayerGame::callbackStart(Ref* obj)
 void LayerGame::start()
 {
     playBgMusic();
-    this->schedule(schedule_selector(LayerGame::update), 0.1f);
+    this->schedule(schedule_selector(LayerGame::update), 0.01f);
     this->schedule(schedule_selector(LayerGame::addBlock), 3.0f );
 }
 
@@ -131,7 +132,10 @@ void LayerGame::update(float fDelta)
     {
         SpriteBlock* spBlock = dynamic_cast<SpriteBlock*>(child);
         if (spBlock && isCollison(spBlock, _spRuner)) {
+            CCLOG("xxxxx1=%f,x2=%f",_spRuner->getPositionX(),spBlock->getPositionX());
+            CCLOG("w1=%f,w2=%f",_spRuner->getContentSize().width,spBlock->getContentSize().width);
             _spRuner->dead();
+
 
         }
     }
@@ -158,12 +162,10 @@ void LayerGame::onTouchMoved(cocos2d::Touch *pTouch, cocos2d::Event *pEvent)
 
 void LayerGame::addBlock(float fDelta)
 {
-    SpriteBlock* spBlock = SpriteBlock::create();
-    //spBlock->setRotation(45);
-    
-    m_pSpriteBatchNode->addChild(spBlock);
-    spBlock->setPosition(Point(BSWinSize().width, 400));
-    spBlock->move(-3.0f);
+    int itype = rand()%5;
+    setCurStartPos(getDefaultPos());
+
+    addBlockType(itype);
 }
 
 
@@ -196,3 +198,97 @@ void LayerGame::stopBgMusic()
     ComSound::shared()->stopMusic();
 }
 
+void LayerGame::addBlockType()
+{
+    
+    int itype = rand()%5;
+    setCurStartPos(getDefaultPos());
+    addBlockType(itype);
+}
+
+Point  LayerGame::getDefaultPos()
+{
+    return Point(BSWinSize().width,400);
+}
+
+
+
+void LayerGame::addBlockType(int iType)
+{
+    switch (iType) {
+        case 0:
+        {
+            SpriteBlock* spBlock = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock);
+            spBlock->setPosition(getCurStartPos());
+            spBlock->setisNeedCount(true);
+            
+            spBlock->move();
+
+            
+            break;
+
+        }
+        case 1:
+        {
+            SpriteBlock* spBlock = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock);
+            spBlock->setPosition(getCurStartPos());
+            
+            SpriteBlock* spBlock2 = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock2);
+            spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
+            spBlock2->setisNeedCount(true);
+            
+            spBlock->move();
+            spBlock2->move();
+
+
+            break;
+        }
+        case 2:
+        {
+            SpriteBlock* spBlock = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock);
+            spBlock->setPosition(getCurStartPos());
+            
+            SpriteBlock* spBlock2 = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock2);
+            spBlock2->setPosition(getCurStartPos()+Point(0,spBlock->getContentSize().height));
+            spBlock2->setisNeedCount(true);
+            spBlock->move();
+            spBlock2->move();
+            break;
+        }
+            
+        case 3:
+        {
+            SpriteBlock* spBlock = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock);
+            spBlock->setPosition(getCurStartPos());
+            
+            SpriteBlock* spBlock2 = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock2);
+            spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
+            
+            
+            SpriteBlock* spBlock3 = SpriteBlock::create();
+            m_pSpriteBatchNode->addChild(spBlock3);
+            spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width*2,0));
+            spBlock3->setisNeedCount(true);
+            
+            spBlock->move();
+            spBlock2->move();
+            spBlock3->move();
+            
+            break;
+        }
+
+        
+            
+        default:
+            break;
+    }
+
+    
+}

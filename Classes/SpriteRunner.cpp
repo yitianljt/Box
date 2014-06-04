@@ -28,8 +28,11 @@ SpriteRunner::~SpriteRunner()
 
 bool SpriteRunner::init() {
     if (initWithFile("player@2x.png")) {
-        setAnchorPoint(Point(0.5,0.5));
-        //this->setContentSize(CCSize(this->getContentSize().width-23,this->getContentSize().height-23));
+        //this->setContentSize(Size(this->getContentSize().width-4,this->getContentSize().height-4));
+        Size originSize = this->getContentSize();
+        //this->setContentSize(Size(10,10));
+        //setAnchorPoint((Point(originSize.width/10.0,(originSize.height-10)/10.0)));
+
         return true;
     }
     
@@ -70,6 +73,7 @@ void SpriteRunner::dead()
     //ParticleSystem* m_emitter1 = ParticleSystemQuad::create("testoc.plist");
     //addChild(m_emitter1);
     //this->getParent()->addChild(m_emitter1);
+    CCLOG("dead");
 }
 
 void SpriteRunner::callbackJump()
@@ -92,7 +96,7 @@ void SpriteRunner::jump()
     this->stopAllActions();
 
     _runnerState = kRunerJump;
-    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+20, 1 );
+    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+60, 1 );
     ActionInterval * rotateBy1 = RotateBy::create(0.5, 180);
     ActionInterval * rotateBy2 = RotateBy::create(0.5, 180);
 
@@ -100,7 +104,7 @@ void SpriteRunner::jump()
     
     
     FiniteTimeAction * spawn =CCSpawn::create(jumpto ,Sequence::create(rotateBy1,rotateBy2,NULL),NULL);
-    this->runAction(Sequence::create(spawn,CallFunc::create(this,callfunc_selector(SpriteRunner::callbackJump)),CallFunc::create([&](){CCLOG("test4");}), CallFunc::create([&](){
+    this->runAction(Sequence::create(spawn,CallFunc::create([&](){this->_runnerState = kRunerWalk;}), CallFunc::create([&](){
         //回调动作代码
         CCLOG("test3");
     }), NULL));

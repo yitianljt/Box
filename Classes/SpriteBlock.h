@@ -12,7 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 
-class SpriteBlock : public cocos2d::CCSprite
+class SpriteBlock : public cocos2d::Sprite
 {
 public:
     SpriteBlock();
@@ -20,14 +20,13 @@ public:
     virtual bool init();
     
     CREATE_FUNC(SpriteBlock);
-    void move(float fd);
+    void move(float fd = -7.0);
     void update(float ft);
-
-    
+    CC_SYNTHESIZE(bool, _isNeedCount, isNeedCount);
     
 private:
-    void move();
-    float fSpeed;
+    float _fSpeed;
+    int   _iScore;
     
 };
 #endif /* defined(__ShareTest__SpriteBlock__) */

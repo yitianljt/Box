@@ -14,6 +14,13 @@
 #include "cocos2d.h"
 #include "SpriteRunner.h"
 
+typedef enum {
+    kLevel1=1,
+    kLevle2,
+    kLevle3,
+    kLevle4
+
+}GameLevel;
 
 
 class LayerGame:public cocos2d::Layer
@@ -33,7 +40,11 @@ public:
     void start();
     void stop();
     void addBlock(float fDelta);
-
+    void addBlockType();
+    void addBlockType(int iType);
+    void getCurLevel();
+    cocos2d::Point  getDefaultPos();
+    CC_SYNTHESIZE(cocos2d::Point, _curStartPos, CurStartPos);
     void update(float fDelta);
 
     virtual bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
@@ -53,7 +64,8 @@ private:
     void stopBgMusic();
     SpriteRunner* _spRuner;
     cocos2d::SpriteBatchNode* m_pSpriteBatchNode;
-
+    
+    GameLevel _gameLevel;
     
     
 };
