@@ -22,7 +22,7 @@ SpriteBlock::~SpriteBlock()
 }
 bool SpriteBlock::init()
 {
-    if (initWithFile("player@2x.png")) {
+    if (initWithFile("player@2x.png",Rect(4,4,60,60))) {
         this->setContentSize(Size(getContentSize().width-2,getContentSize().height-2));
         
         return true;

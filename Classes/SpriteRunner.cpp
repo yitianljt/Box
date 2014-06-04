@@ -27,7 +27,7 @@ SpriteRunner::~SpriteRunner()
 {}
 
 bool SpriteRunner::init() {
-    if (initWithFile("player@2x.png")) {
+    if (initWithFile("player@2x.png",Rect(4,4,60,60))) {
         //this->setContentSize(Size(this->getContentSize().width-4,this->getContentSize().height-4));
         Size originSize = this->getContentSize();
         //this->setContentSize(Size(10,10));
@@ -96,7 +96,7 @@ void SpriteRunner::jump()
     this->stopAllActions();
 
     _runnerState = kRunerJump;
-    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+60, 1 );
+    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+40, 1 );
     ActionInterval * rotateBy1 = RotateBy::create(0.5, 180);
     ActionInterval * rotateBy2 = RotateBy::create(0.5, 180);
 

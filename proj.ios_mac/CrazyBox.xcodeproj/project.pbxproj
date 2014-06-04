@@ -80,6 +80,10 @@
 		A9A50AC3193DC76B00267F82 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A50AC2193DC76B00267F82 /* MessageUI.framework */; };
 		A9A50AC5193DC77700267F82 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A50AC4193DC77700267F82 /* SystemConfiguration.framework */; };
 		A9A50AC7193DC7B600267F82 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A50AC6193DC7B600267F82 /* CoreTelephony.framework */; };
+		A9A50AD3193EEDA300267F82 /* cloud_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AD0193EEDA200267F82 /* cloud_1.png */; };
+		A9A50AD4193EEDA300267F82 /* cloud_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AD1193EEDA200267F82 /* cloud_2.png */; };
+		A9A50AD5193EEDA300267F82 /* cloud_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AD2193EEDA200267F82 /* cloud_3.png */; };
+		A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -319,6 +323,11 @@
 		A9A50AC2193DC76B00267F82 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		A9A50AC4193DC77700267F82 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		A9A50AC6193DC7B600267F82 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		A9A50AD0193EEDA200267F82 /* cloud_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_1.png; sourceTree = "<group>"; };
+		A9A50AD1193EEDA200267F82 /* cloud_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_2.png; sourceTree = "<group>"; };
+		A9A50AD2193EEDA200267F82 /* cloud_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_3.png; sourceTree = "<group>"; };
+		A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CloudLayer.cpp; sourceTree = "<group>"; };
+		A9A50AD9193EEDF100267F82 /* CloudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -533,6 +542,9 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9A50AD0193EEDA200267F82 /* cloud_1.png */,
+				A9A50AD1193EEDA200267F82 /* cloud_2.png */,
+				A9A50AD2193EEDA200267F82 /* cloud_3.png */,
 				A9A50975193D7F4600267F82 /* player@2x.png */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
@@ -596,6 +608,8 @@
 				A9A5096F193D78BF00267F82 /* LayerGame.h */,
 				A9A50970193D78BF00267F82 /* SceneGame.cpp */,
 				A9A50971193D78BF00267F82 /* SceneGame.h */,
+				A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */,
+				A9A50AD9193EEDF100267F82 /* CloudLayer.h */,
 			);
 			name = GameMain;
 			path = ../Classes/GameMain;
@@ -790,8 +804,10 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				A9A50976193D7F4600267F82 /* player@2x.png in Resources */,
+				A9A50AD4193EEDA300267F82 /* cloud_2.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				A9A50AD5193EEDA300267F82 /* cloud_3.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
@@ -803,6 +819,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				A9A50AD3193EEDA300267F82 /* cloud_1.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
@@ -830,6 +847,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A9A50951193D738500267F82 /* SpriteBlock.cpp in Sources */,
+				A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */,
 				A9A50952193D738500267F82 /* SpriteRunner.cpp in Sources */,
 				A9A5095E193D775D00267F82 /* LayerLaunch.cpp in Sources */,
 				A9A50966193D77C900267F82 /* BaseComScene.cpp in Sources */,
@@ -917,6 +935,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -950,6 +969,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;

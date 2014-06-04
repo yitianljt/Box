@@ -10,6 +10,7 @@
 #define __ShareTest__LayerGame__
 
 #include <iostream>
+#include "CloudLayer.h"
 #include "Common.h"
 #include "cocos2d.h"
 #include "SpriteRunner.h"
@@ -64,7 +65,13 @@ private:
     void stopBgMusic();
     SpriteRunner* _spRuner;
     cocos2d::SpriteBatchNode* m_pSpriteBatchNode;
+    cocos2d::ParallaxNode* _parallax;
     
+    cocos2d::ParallaxNode* _parallax2;
+
+    CloudLayer* _cloudBackLayer;
+    CloudLayer* _cloudFrontLayer;
+
     GameLevel _gameLevel;
     
     

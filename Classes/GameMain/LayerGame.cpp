@@ -88,13 +88,29 @@ bool LayerGame::init()
 	listener->setSwallowTouches(true);//不向下传递触摸
 	dispatcher->addEventListenerWithSceneGraphPriority(listener,this);
 
+    //云朵背景
+    _parallax = ParallaxNode::create();
+    this->addChild(_parallax,1);
+    
+    _cloudBackLayer = CloudLayer::create(BSWinSize().width, kCloudBack);
+    _parallax->addChild(_cloudBackLayer, 1, Vec2(0.5,0), Vec2(0,0) );
+
+    _cloudFrontLayer = CloudLayer::create(BSWinSize().width, kCloudFront);
+    _parallax->addChild(_cloudFrontLayer, 2, Vec2(0.7,0), Vec2(0,0) );
+    
+    
+    
+    _parallax2 = ParallaxNode::create();
+    Point pt = _parallax2->getAnchorPoint();
+    this->addChild(_parallax2,1);
+    CloudLayer *cloudBackLayer_ = CloudLayer::create(BSWinSize().width, kCloudBack);
+    _parallax2->addChild(cloudBackLayer_, 1, Vec2(0.5,0), Vec2(0,0) );
+    CloudLayer* cloudFrontLayer_ = CloudLayer::create(BSWinSize().width, kCloudFront);
+    _parallax2->addChild(cloudFrontLayer_, 2, Vec2(0.7,0), Vec2(0,0) );
+    _parallax2->setPositionX(_cloudFrontLayer->getcloudLayerWidth());
     
     start();
-    
-    
     return true;
-    
-    
 }
 
 void LayerGame::onEnter()
@@ -126,6 +142,18 @@ void LayerGame::stop()
 
 void LayerGame::update(float fDelta)
 {
+    _parallax->setPositionX(_parallax->getPositionX()-3);
+    _parallax2->setPositionX(_parallax2->getPositionX()-3);
+    
+    if (_parallax->getPositionX()<-(_cloudBackLayer->getcloudLayerWidth()*2))
+    {
+        _parallax->setPositionX(_parallax2->getPositionX()+_cloudBackLayer->getcloudLayerWidth()*2);
+    }
+    
+    if (_parallax2->getPositionX()<-(_cloudBackLayer->getcloudLayerWidth()*2))
+    {
+        _parallax2->setPositionX(_parallax->getPositionX()+_cloudBackLayer->getcloudLayerWidth()*2);
+    }
     
     std::vector<Sprite*>  blockNodes = m_pSpriteBatchNode->getDescendants();
     for (auto child:blockNodes )
@@ -135,8 +163,6 @@ void LayerGame::update(float fDelta)
             CCLOG("xxxxx1=%f,x2=%f",_spRuner->getPositionX(),spBlock->getPositionX());
             CCLOG("w1=%f,w2=%f",_spRuner->getContentSize().width,spBlock->getContentSize().width);
             _spRuner->dead();
-
-
         }
     }
     
@@ -164,7 +190,6 @@ void LayerGame::addBlock(float fDelta)
 {
     int itype = rand()%5;
     setCurStartPos(getDefaultPos());
-
     addBlockType(itype);
 }
 
@@ -176,9 +201,6 @@ bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
         _spRuner->dead();
         gameover();
     }
-    
-    
-    
     return false;
 }
 
