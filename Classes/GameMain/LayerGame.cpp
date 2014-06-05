@@ -39,13 +39,14 @@ bool LayerGame::init()
         return false;
     }
     //背景
-    LayerGradient* layer1 = LayerGradient::create(Color4B(60,110,110,255), Color4B(110,210,190,255), Point(.0f, .0f));
-    addChild(layer1, 0);
+    LayerGradient* layer1 = LayerGradient::create(Color4B(110,210,200,255), Color4B(110,210,190,255), Point(.0f, .0f));
+    addChild(layer1, kBgLayerOrder);
     
 //    GroundLayer* layerGround = GroundLayer::create();
 //    addChild(layerGround);
     
     _spRuner = SpriteRunner::create();
+    _spRuner->setColor(Color3B(255,0,0));
     
     _spRuner->setPosition(Point(200,400));
     //_spRuner->setRotation(45);
@@ -56,12 +57,8 @@ bool LayerGame::init()
     //this->m_pSpriteBatchNode=CCSpriteBatchNode::create("main.png", 100);
 
     this->m_pSpriteBatchNode = CCSpriteBatchNode::create("player@2x.png", 100);
-    addChild(m_pSpriteBatchNode);
-    start();
+    addChild(m_pSpriteBatchNode,kCloudOrder);
     
-    glLineWidth( 5.0f );
-    cocos2d::DrawPrimitives::setDrawColor4F(255,0,0,40);
-    DrawPrimitives::drawLine(Point(0, 0), Point(200, 400));
     /*
     
     CCLayerColor* layerBg = CCLayerColor::create(ccc4(0, 255, 255, 255), sizeWin.width, sizeWin.height);
@@ -90,7 +87,7 @@ bool LayerGame::init()
 
     //云朵背景
     _parallax = ParallaxNode::create();
-    this->addChild(_parallax,1);
+    this->addChild(_parallax,kCloudOrder);
     
     _cloudBackLayer = CloudLayer::create(BSWinSize().width, kCloudBack);
     _parallax->addChild(_cloudBackLayer, 1, Vec2(0.5,0), Vec2(0,0) );
@@ -108,6 +105,23 @@ bool LayerGame::init()
     CloudLayer* cloudFrontLayer_ = CloudLayer::create(BSWinSize().width, kCloudFront);
     _parallax2->addChild(cloudFrontLayer_, 2, Vec2(0.7,0), Vec2(0,0) );
     _parallax2->setPositionX(_cloudFrontLayer->getcloudLayerWidth());
+    
+    //ground
+    layerGround1 = LayerColor::create(Color4B(255,0,0,255), BSWinSize().width, 300);
+    this->addChild(layerGround1,kGroundOrder);
+    
+    
+    /*
+    SpriteBatchNode*  pSpriteBatchNode_ = SpriteBatchNode::create("ground.png",10);
+    Sprite* spGound = Sprite::create("ground.png");
+    pSpriteBatchNode_->addChild(spGound);
+    
+    layerGround1->addChild(pSpriteBatchNode_);
+    spGound->setAnchorPoint(Point(0,0));
+    addChild(layerGround1,0);
+    */
+    
+    
     
     start();
     return true;
@@ -207,7 +221,12 @@ bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
 
 void LayerGame::gameover()
 {
+    this->unschedule(schedule_selector(LayerGame::update));
+    this->unschedule(schedule_selector(LayerGame::addBlock));
     
+    Director::getInstance()->pushScene(GameControl::scene(SceneTag::kSceneResult));
+
+
 }
 
 void LayerGame::playBgMusic()

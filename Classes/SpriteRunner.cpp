@@ -70,9 +70,9 @@ void SpriteRunner::onFadeOut() {
 
 void SpriteRunner::dead()
 {
-    //ParticleSystem* m_emitter1 = ParticleSystemQuad::create("testoc.plist");
-    //addChild(m_emitter1);
-    //this->getParent()->addChild(m_emitter1);
+//    ParticleSystem* m_emitter1 = ParticleSystemQuad::create("testoc.plist");
+//    addChild(m_emitter1);
+//    this->getParent()->addChild(m_emitter1);
     CCLOG("dead");
 }
 
@@ -111,3 +111,6 @@ void SpriteRunner::jump()
 
     
 }
+
+
+

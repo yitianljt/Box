@@ -24,7 +24,7 @@ public:
     
     virtual void onEnter();
     virtual void onExit();
-    
+    virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, bool transformUpdated) override;
     void callbackStart(cocos2d::Ref* obj);
     
 };

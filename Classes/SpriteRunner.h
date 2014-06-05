@@ -27,6 +27,9 @@ public:
     
     virtual bool init();
     //virtual void initActions();
+    //virtual void setColor(const cocos2d::Color3B& color3);
+    
+
     
     //PlayerState getState() { return this->m_ePlayerState; }
     //void setState(PlayerState playerState) { this->m_ePlayerState = playerState; }

@@ -10,7 +10,6 @@
 #define __ShareTest__SceneGame__
 
 #include <iostream>
-#include <iostream>
 #include "BaseComScene.h"
 #include "cocos2d.h"
 

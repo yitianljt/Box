@@ -84,6 +84,9 @@
 		A9A50AD4193EEDA300267F82 /* cloud_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AD1193EEDA200267F82 /* cloud_2.png */; };
 		A9A50AD5193EEDA300267F82 /* cloud_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AD2193EEDA200267F82 /* cloud_3.png */; };
 		A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */; };
+		A9A50AE8193F3BDD00267F82 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AE7193F3BDD00267F82 /* ground.png */; };
+		A9A50AF1193FCEF700267F82 /* GameResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AEF193FCEF700267F82 /* GameResult.cpp */; };
+		A9A50AF5193FCFF600267F82 /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AF3193FCFF600267F82 /* ResultLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -328,6 +331,11 @@
 		A9A50AD2193EEDA200267F82 /* cloud_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_3.png; sourceTree = "<group>"; };
 		A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CloudLayer.cpp; sourceTree = "<group>"; };
 		A9A50AD9193EEDF100267F82 /* CloudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudLayer.h; sourceTree = "<group>"; };
+		A9A50AE7193F3BDD00267F82 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		A9A50AEF193FCEF700267F82 /* GameResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameResult.cpp; sourceTree = "<group>"; };
+		A9A50AF0193FCEF700267F82 /* GameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResult.h; sourceTree = "<group>"; };
+		A9A50AF3193FCFF600267F82 /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultLayer.cpp; sourceTree = "<group>"; };
+		A9A50AF4193FCFF600267F82 /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -411,6 +419,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9A50AEE193FCECC00267F82 /* GameResult */,
 				A9A50AAB193DC67D00267F82 /* GoogleMobileAdsSdkiOS-6.9.2 */,
 				A9A5096B193D78BF00267F82 /* GameMain */,
 				A9A50960193D779D00267F82 /* Common */,
@@ -542,6 +551,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9A50AE7193F3BDD00267F82 /* ground.png */,
 				A9A50AD0193EEDA200267F82 /* cloud_1.png */,
 				A9A50AD1193EEDA200267F82 /* cloud_2.png */,
 				A9A50AD2193EEDA200267F82 /* cloud_3.png */,
@@ -634,6 +644,18 @@
 			);
 			name = "GoogleMobileAdsSdkiOS-6.9.2";
 			path = "../Classes/GoogleMobileAdsSdkiOS-6.9.2";
+			sourceTree = "<group>";
+		};
+		A9A50AEE193FCECC00267F82 /* GameResult */ = {
+			isa = PBXGroup;
+			children = (
+				A9A50AEF193FCEF700267F82 /* GameResult.cpp */,
+				A9A50AF0193FCEF700267F82 /* GameResult.h */,
+				A9A50AF3193FCFF600267F82 /* ResultLayer.cpp */,
+				A9A50AF4193FCFF600267F82 /* ResultLayer.h */,
+			);
+			name = GameResult;
+			path = ../Classes/GameResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,6 +834,7 @@
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				A9A50AE8193F3BDD00267F82 /* ground.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
@@ -850,10 +873,12 @@
 				A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */,
 				A9A50952193D738500267F82 /* SpriteRunner.cpp in Sources */,
 				A9A5095E193D775D00267F82 /* LayerLaunch.cpp in Sources */,
+				A9A50AF5193FCFF600267F82 /* ResultLayer.cpp in Sources */,
 				A9A50966193D77C900267F82 /* BaseComScene.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				A9A5096A193D785400267F82 /* GameControl.cpp in Sources */,
 				A9A50974193D78BF00267F82 /* SceneGame.cpp in Sources */,
+				A9A50AF1193FCEF700267F82 /* GameResult.cpp in Sources */,
 				A9A50973193D78BF00267F82 /* LayerGame.cpp in Sources */,
 				A9A50963193D779D00267F82 /* CommonTool.cpp in Sources */,
 				A9A5097B193D95D500267F82 /* ComSound.cpp in Sources */,

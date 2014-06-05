@@ -23,6 +23,13 @@ typedef enum {
 
 }GameLevel;
 
+typedef enum {
+    kBgLayerOrder,
+    kGroundOrder,
+    kCloudOrder,
+    
+}kZOrder;
+
 
 class LayerGame:public cocos2d::Layer
 {
@@ -66,11 +73,15 @@ private:
     SpriteRunner* _spRuner;
     cocos2d::SpriteBatchNode* m_pSpriteBatchNode;
     cocos2d::ParallaxNode* _parallax;
-    
     cocos2d::ParallaxNode* _parallax2;
+    
+    cocos2d::LayerColor* layerGround1;
+    cocos2d::LayerColor* layerGround2;
+    
 
     CloudLayer* _cloudBackLayer;
     CloudLayer* _cloudFrontLayer;
+    
 
     GameLevel _gameLevel;
     
