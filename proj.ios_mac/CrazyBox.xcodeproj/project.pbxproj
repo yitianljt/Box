@@ -87,6 +87,10 @@
 		A9A50AE8193F3BDD00267F82 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50AE7193F3BDD00267F82 /* ground.png */; };
 		A9A50AF1193FCEF700267F82 /* GameResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AEF193FCEF700267F82 /* GameResult.cpp */; };
 		A9A50AF5193FCFF600267F82 /* ResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A50AF3193FCFF600267F82 /* ResultLayer.cpp */; };
+		A9A50B08194039EF00267F82 /* card_play_btn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B04194039EF00267F82 /* card_play_btn_highlighted.png */; };
+		A9A50B09194039EF00267F82 /* card_play_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B05194039EF00267F82 /* card_play_btn_normal.png */; };
+		A9A50B0A194039EF00267F82 /* NewUi01_1.json in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B06194039EF00267F82 /* NewUi01_1.json */; };
+		A9A50B0B194039EF00267F82 /* video_cover_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B07194039EF00267F82 /* video_cover_1.jpg */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -336,6 +340,10 @@
 		A9A50AF0193FCEF700267F82 /* GameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResult.h; sourceTree = "<group>"; };
 		A9A50AF3193FCFF600267F82 /* ResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultLayer.cpp; sourceTree = "<group>"; };
 		A9A50AF4193FCFF600267F82 /* ResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLayer.h; sourceTree = "<group>"; };
+		A9A50B04194039EF00267F82 /* card_play_btn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_play_btn_highlighted.png; sourceTree = "<group>"; };
+		A9A50B05194039EF00267F82 /* card_play_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_play_btn_normal.png; sourceTree = "<group>"; };
+		A9A50B06194039EF00267F82 /* NewUi01_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NewUi01_1.json; sourceTree = "<group>"; };
+		A9A50B07194039EF00267F82 /* video_cover_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video_cover_1.jpg; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -551,6 +559,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9A50B03194039EF00267F82 /* ccs */,
 				A9A50AE7193F3BDD00267F82 /* ground.png */,
 				A9A50AD0193EEDA200267F82 /* cloud_1.png */,
 				A9A50AD1193EEDA200267F82 /* cloud_2.png */,
@@ -656,6 +665,17 @@
 			);
 			name = GameResult;
 			path = ../Classes/GameResult;
+			sourceTree = "<group>";
+		};
+		A9A50B03194039EF00267F82 /* ccs */ = {
+			isa = PBXGroup;
+			children = (
+				A9A50B04194039EF00267F82 /* card_play_btn_highlighted.png */,
+				A9A50B05194039EF00267F82 /* card_play_btn_normal.png */,
+				A9A50B06194039EF00267F82 /* NewUi01_1.json */,
+				A9A50B07194039EF00267F82 /* video_cover_1.jpg */,
+			);
+			path = ccs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -823,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				A9A50B0A194039EF00267F82 /* NewUi01_1.json in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				A9A50976193D7F4600267F82 /* player@2x.png in Resources */,
@@ -830,12 +851,15 @@
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				A9A50AD5193EEDA300267F82 /* cloud_3.png in Resources */,
+				A9A50B0B194039EF00267F82 /* video_cover_1.jpg in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				A9A50AE8193F3BDD00267F82 /* ground.png in Resources */,
+				A9A50B08194039EF00267F82 /* card_play_btn_highlighted.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				A9A50B09194039EF00267F82 /* card_play_btn_normal.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -976,6 +1000,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../cocos2d/cocos/ui/",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support/cocostudio/",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1008,6 +1034,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/../cocos2d/cocos/ui/",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support/cocostudio/",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;

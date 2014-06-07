@@ -12,6 +12,8 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Common.h"
+#include "UIWidget.h"
+
 
 
 class LayerLaunch:public cocos2d::Layer
@@ -26,6 +28,8 @@ public:
     virtual void onExit();
     virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, bool transformUpdated) override;
     void callbackStart(cocos2d::Ref* obj);
+    void touchCallBack(cocos2d::CCObject *pRef,cocos2d::ui::TouchEventType type);
+
     
 };
 

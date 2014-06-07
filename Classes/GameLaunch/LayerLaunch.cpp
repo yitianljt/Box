@@ -8,9 +8,12 @@
 
 #include "LayerLaunch.h"
 #include "GameControl.h"
-
+#include "cocos-ext.h"
+#include "UILayout.h"
+#include "CCSGUIReader.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 
 COM_CREATE_FUNC_IMPL(LayerLaunch);
@@ -35,14 +38,30 @@ bool LayerLaunch::init()
     Director::getInstance()->replaceScene(GameControl::scene(kSceneGame));
                 });
     
-    
+
     
     Menu* menu = Menu::create(btnItem,NULL);
     menu->setPosition(Point(sizeWin.width/2,sizeWin.height/2));
     layerBg->addChild(menu, 1);
+    
+    
+    
+    cocos2d::ui::Layout* equipe_root =dynamic_cast<cocos2d::ui::Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ccs/NewUi01_1.json"));
+    
 
     
+
+   // equipe_root->getChildByName("Button_4")->addTouchEventListener(this,cocos2d::ui::SEL_TouchEvent(Layer));
+   // startBtn->addTouchEventListener(this,cocos2d::ui::SEL_TouchEvent(&MainScene::touchCallBack));
+
+    
+    
     return true;
+}
+
+void LayerLaunch::touchCallBack(CCObject *pSender, cocos2d::ui::TouchEventType type)
+{
+    CCLOG("touchEvent");
 }
 
 void LayerLaunch::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, bool transformUpdated)

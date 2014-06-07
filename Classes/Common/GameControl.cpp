@@ -23,7 +23,7 @@ BaseComScene* GameControl::scene(SceneTag tag)
         scene = SceneGame::create();
         break;
         case kSceneResult:
-            scene = SceneResult::create();
+             // scene = SceneResult::create();
         default:
         break;
     }
