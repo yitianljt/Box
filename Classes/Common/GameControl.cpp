@@ -9,9 +9,10 @@
 #include "GameControl.h"
 #include "SceneLaunch.h"
 #include "SceneGame.h"
+#include "LayerGame.h"
 
 USING_NS_CC;
-BaseComScene* GameControl::scene(SceneTag tag)
+Scene* GameControl::scene(SceneTag tag)
 {
     BaseComScene* scene = NULL;
     
@@ -20,10 +21,15 @@ BaseComScene* GameControl::scene(SceneTag tag)
         scene = SceneLaunch::create();
         break;
         case kSceneGame:
-        scene = SceneGame::create();
+        {
+            scene = SceneGame::createWithPhysics();
+            scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+            LayerGame* layerBg = LayerGame::create();
+            scene->addChild(layerBg,0);
+        }
         break;
         case kSceneResult:
-             // scene = SceneResult::create();
+              //scene = SceneResult::create();
         default:
         break;
     }

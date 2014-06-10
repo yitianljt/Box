@@ -151,6 +151,9 @@ static AppDelegate s_sharedApplication;
     [window release];
     [super dealloc];
 }
-
+- (void) showBanner{
+   // bannerView_->setVisable(false);
+    //[bannerView_ ]
+}
 
 @end

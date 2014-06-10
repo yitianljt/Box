@@ -45,10 +45,10 @@ bool LayerLaunch::init()
     layerBg->addChild(menu, 1);
     
     
-    
+    /*
     cocos2d::ui::Layout* equipe_root =dynamic_cast<cocos2d::ui::Layout*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ccs/NewUi01_1.json"));
     
-
+*/
     
 
    // equipe_root->getChildByName("Button_4")->addTouchEventListener(this,cocos2d::ui::SEL_TouchEvent(Layer));

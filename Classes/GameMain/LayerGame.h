@@ -13,6 +13,7 @@
 #include "CloudLayer.h"
 #include "Common.h"
 #include "cocos2d.h"
+#include "Box2D/Box2D.h"
 #include "SpriteRunner.h"
 
 typedef enum {
@@ -54,6 +55,9 @@ public:
     cocos2d::Point  getDefaultPos();
     CC_SYNTHESIZE(cocos2d::Point, _curStartPos, CurStartPos);
     void update(float fDelta);
+    void updateGround(float fDelta);
+
+    void initPhysics();
 
     virtual bool onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
     virtual void onTouchEnded(cocos2d::Touch* pTouch, cocos2d::Event* pEvent);
@@ -78,13 +82,16 @@ private:
     cocos2d::LayerColor* layerGround1;
     cocos2d::LayerColor* layerGround2;
     
+    cocos2d::Sprite* _spGround1;
+    cocos2d::Sprite* _spGround2;
+    
 
     CloudLayer* _cloudBackLayer;
     CloudLayer* _cloudFrontLayer;
     
 
     GameLevel _gameLevel;
-    
+    b2World* _world;
     
 };
 

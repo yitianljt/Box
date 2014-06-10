@@ -12,6 +12,7 @@
 #include <iostream>
 #include "BaseComScene.h"
 typedef enum {
+    
     kSceneLaunch,
     kSceneGame,
     kSceneResult,
@@ -20,7 +21,7 @@ typedef enum {
 
 class GameControl{
 public:
-    static BaseComScene* scene(SceneTag tag);
+    static cocos2d::Scene* scene(SceneTag tag);
 };
 
 #endif /* defined(__ShareTest__GameControl__) */

@@ -20,7 +20,7 @@ public:
     virtual bool init();
     
     CREATE_FUNC(SpriteBlock);
-    void move(float fd = -7.0);
+    void move(float fd = -8.0);
     void update(float ft);
     CC_SYNTHESIZE(bool, _isNeedCount, isNeedCount);
     

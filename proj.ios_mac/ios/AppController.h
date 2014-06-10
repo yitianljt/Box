@@ -10,6 +10,8 @@
     
 }
 
+-(void) showBanner;
+-(void) hideBanner;
 @property(nonatomic, readonly) RootViewController* viewController;
 
 @end

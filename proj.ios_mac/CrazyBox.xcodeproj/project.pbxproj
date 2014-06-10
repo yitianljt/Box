@@ -91,6 +91,9 @@
 		A9A50B09194039EF00267F82 /* card_play_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B05194039EF00267F82 /* card_play_btn_normal.png */; };
 		A9A50B0A194039EF00267F82 /* NewUi01_1.json in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B06194039EF00267F82 /* NewUi01_1.json */; };
 		A9A50B0B194039EF00267F82 /* video_cover_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B07194039EF00267F82 /* video_cover_1.jpg */; };
+		A9E3323119449E14002D18CC /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E3323019449E14002D18CC /* square.png */; };
+		A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E3323F194590CF002D18CC /* ControlBannerView.cpp */; };
+		A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9E3324719459297002D18CC /* ControlBannerView.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -344,6 +347,10 @@
 		A9A50B05194039EF00267F82 /* card_play_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_play_btn_normal.png; sourceTree = "<group>"; };
 		A9A50B06194039EF00267F82 /* NewUi01_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NewUi01_1.json; sourceTree = "<group>"; };
 		A9A50B07194039EF00267F82 /* video_cover_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video_cover_1.jpg; sourceTree = "<group>"; };
+		A9E3323019449E14002D18CC /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
+		A9E3323F194590CF002D18CC /* ControlBannerView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControlBannerView.cpp; path = ../Common/ControlBannerView.cpp; sourceTree = "<group>"; };
+		A9E33240194590CF002D18CC /* ControlBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlBannerView.h; path = ../Common/ControlBannerView.h; sourceTree = "<group>"; };
+		A9E3324719459297002D18CC /* ControlBannerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ControlBannerView.mm; path = ../Common/ControlBannerView.mm; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -559,6 +566,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9E3323019449E14002D18CC /* square.png */,
 				A9A50B03194039EF00267F82 /* ccs */,
 				A9A50AE7193F3BDD00267F82 /* ground.png */,
 				A9A50AD0193EEDA200267F82 /* cloud_1.png */,
@@ -623,12 +631,15 @@
 		A9A5096B193D78BF00267F82 /* GameMain */ = {
 			isa = PBXGroup;
 			children = (
+				A9E3324719459297002D18CC /* ControlBannerView.mm */,
 				A9A5096E193D78BF00267F82 /* LayerGame.cpp */,
 				A9A5096F193D78BF00267F82 /* LayerGame.h */,
 				A9A50970193D78BF00267F82 /* SceneGame.cpp */,
 				A9A50971193D78BF00267F82 /* SceneGame.h */,
 				A9A50AD8193EEDF100267F82 /* CloudLayer.cpp */,
 				A9A50AD9193EEDF100267F82 /* CloudLayer.h */,
+				A9E3323F194590CF002D18CC /* ControlBannerView.cpp */,
+				A9E33240194590CF002D18CC /* ControlBannerView.h */,
 			);
 			name = GameMain;
 			path = ../Classes/GameMain;
@@ -863,6 +874,7 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				A9E3323119449E14002D18CC /* square.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
@@ -894,6 +906,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A9A50951193D738500267F82 /* SpriteBlock.cpp in Sources */,
+				A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */,
 				A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */,
 				A9A50952193D738500267F82 /* SpriteRunner.cpp in Sources */,
 				A9A5095E193D775D00267F82 /* LayerLaunch.cpp in Sources */,
@@ -904,6 +917,7 @@
 				A9A50974193D78BF00267F82 /* SceneGame.cpp in Sources */,
 				A9A50AF1193FCEF700267F82 /* GameResult.cpp in Sources */,
 				A9A50973193D78BF00267F82 /* LayerGame.cpp in Sources */,
+				A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */,
 				A9A50963193D779D00267F82 /* CommonTool.cpp in Sources */,
 				A9A5097B193D95D500267F82 /* ComSound.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,

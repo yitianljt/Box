@@ -22,13 +22,8 @@ SceneGame::~SceneGame()
 
 bool SceneGame::init()
 {
-    if (BaseComScene::init()) {
+    if (Scene::initWithPhysics()) {
         //launch场景
-        
-        LayerGame* layerBg = LayerGame::create();
-        this->addChild(layerBg,0);
-        
-        
 //        GuideLayer* layerGuide = GuideLayer::create();
 //        this->addChild(layerGuide);
         return true;
@@ -38,5 +33,8 @@ bool SceneGame::init()
 
 void SceneGame::onEnter()
 {
-    BaseComScene::onEnter();
+    Scene::onEnter();
+    
+    LayerGame* layerBg = LayerGame::create();
+    this->addChild(layerBg,0);
 }

@@ -27,12 +27,9 @@ SpriteRunner::~SpriteRunner()
 {}
 
 bool SpriteRunner::init() {
-    if (initWithFile("player@2x.png",Rect(4,4,60,60))) {
-        //this->setContentSize(Size(this->getContentSize().width-4,this->getContentSize().height-4));
+    if (initWithFile("square.png")) {
         Size originSize = this->getContentSize();
-        //this->setContentSize(Size(10,10));
-        //setAnchorPoint((Point(originSize.width/10.0,(originSize.height-10)/10.0)));
-
+        CCLOG("%f,%f",originSize.width,originSize.height);
         return true;
     }
     
