@@ -80,6 +80,7 @@ void SpriteRunner::callbackJump()
 
 
 
+
 void SpriteRunner::jump()
 {
     if (_runnerState == kRunerWalk) {
@@ -87,20 +88,25 @@ void SpriteRunner::jump()
     }
     else if (_runnerState == kRunerJump)
     {
-       // this->setRotation(0.0f);
-        return;
+        //return;
     }
     this->stopAllActions();
 
     _runnerState = kRunerJump;
+    
+    
+    
     ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+40, 1 );
-    ActionInterval * rotateBy1 = RotateBy::create(0.5, 180);
+    ActionInterval * rotateBy1 = RotateBy::create(0.5, 45);
     ActionInterval * rotateBy2 = RotateBy::create(0.5, 180);
-
+    //this->setRotation(45 );
+    this->runAction(rotateBy1);
+    return;
+    
     auto call = [this](){CCLOG("test");};
     
     
-    FiniteTimeAction * spawn =CCSpawn::create(jumpto ,Sequence::create(rotateBy1,rotateBy2,NULL),NULL);
+    FiniteTimeAction * spawn =Spawn::create(jumpto ,Sequence::create(rotateBy1,rotateBy2,NULL),NULL);
     this->runAction(Sequence::create(spawn,CallFunc::create([&](){this->_runnerState = kRunerWalk;}), CallFunc::create([&](){
         //回调动作代码
         CCLOG("test3");

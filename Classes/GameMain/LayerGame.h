@@ -69,6 +69,7 @@ public:
     bool isCollison(cocos2d::Sprite* sp1,cocos2d::Sprite* sp2);
     
     void gameover();
+    void setPhyWorld(cocos2d::PhysicsWorld* world){ _world = world;};
     
 private:
     
@@ -91,7 +92,9 @@ private:
     
 
     GameLevel _gameLevel;
-    b2World* _world;
+    cocos2d::PhysicsWorld* _world;
+    
+    
     
 };
 

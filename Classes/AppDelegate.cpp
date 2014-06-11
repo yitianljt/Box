@@ -33,6 +33,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     //director->runWithScene(scene);
     
+#if CC_TARGET_PLATFORM  == CC_PLATFORM_IOS
+#endif
+
+    
+    
     Scene *pScene = GameControl::scene(kSceneLaunch);
     
     // run

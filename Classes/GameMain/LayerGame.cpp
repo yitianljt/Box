@@ -42,20 +42,14 @@ bool LayerGame::init()
     LayerGradient* layer1 = LayerGradient::create(Color4B(110,210,200,255), Color4B(110,210,190,255), Point(.0f, .0f));
     addChild(layer1, kBgLayerOrder);
     
-//    GroundLayer* layerGround = GroundLayer::create();
-//    addChild(layerGround);
-    
     _spRuner = SpriteRunner::create();
-    _spRuner->setColor(Color3B(255,0,0));
-    
     _spRuner->setPosition(Point(200,290));
-    //_spRuner->setRotation(45);
+    //_spRuner->addBoxBodyForSprite(_spRuner);
+    auto body = PhysicsBody::createBox(Size(60,60));
+    _spRuner->setPhysicsBody(body);
+    body->setRotationEnable(true);
     addChild(_spRuner);
-    
     //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
-    
-    //this->m_pSpriteBatchNode=CCSpriteBatchNode::create("main.png", 100);
-
     this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
     addChild(m_pSpriteBatchNode,kCloudOrder);
     
@@ -108,8 +102,6 @@ bool LayerGame::init()
     this->schedule(schedule_selector(LayerGame::updateGround), 0.01f);
 
     
-    initPhysics();
-
     
     start();
     return true;
@@ -232,27 +224,17 @@ Point  LayerGame::getDefaultPos()
 
 void LayerGame::updateGround(float fDelta)
 {
-    for (b2Body* b = _world->GetBodyList(); b; b=b->GetNext()) {
-        if (b->GetUserData() != NULL) {
-//            SpriteRunner* sp = (SpriteRunner*)b->GetUserData();
-//            sp->setPosition(ccp(b->GetPosition().x*PTM_RATIO,b->GetPosition().y*PTM_RATIO));
-//            
-            
-        }
-    }
+
     
     std::vector<Sprite*>  blockNodes = m_pSpriteBatchNode->getDescendants();
     for (auto child:blockNodes )
     {
+        
         SpriteBlock* spBlock = dynamic_cast<SpriteBlock*>(child);
+        /*
         if (spBlock && isCollison(spBlock, _spRuner)) {
-            CCLOG("xxxxx1=%f,x2=%f",_spRuner->getPositionX(),_spRuner->getPositionY());
-            CCLOG("w1=%f,w2=%f",_spRuner->getContentSize().width,_spRuner->getContentSize().height);
-            
-            CCLOG("block = %f, %f",spBlock->getPositionX(),spBlock->getPositionY());
-            CCLOG("block_w=%f,block_h=%f",spBlock->getContentSize().width,spBlock->getContentSize().height);
             _spRuner->dead();
-        }
+        }*/
         spBlock->setPositionX(spBlock->getPositionX()-8.0);
 
     }
@@ -273,15 +255,18 @@ void LayerGame::updateGround(float fDelta)
 
 void LayerGame::addBlockType(int iType)
 {
+    iType = 0;
     switch (iType) {
         case 0:
         {
             SpriteBlock* spBlock = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock);
             spBlock->setPosition(getCurStartPos());
-            //spBlock->setRotation(45);
             spBlock->setisNeedCount(true);
-            //spBlock->move();
+            
+            auto body = PhysicsBody::createBox(Size(60,60));
+            spBlock->setPhysicsBody(body);
+            
             break;
 
         }
@@ -426,50 +411,50 @@ void LayerGame::addBlockType(int iType)
 
 void LayerGame::initPhysics()
 {
-    //step :1
-    b2Vec2 gravity;// step: 1
-    gravity.Set(0.0f, 0.0); // direction of the sprite runs,base on the GL position,
-
-
-    //step :2
-    _world  = new b2World(gravity);
-    _world->SetAllowSleeping(true); // pause all ,init the box2d world
-    _world->SetContinuousPhysics(true); // resume the box2d
-
-
-    //
-    
-    //step: 3, defint the body
-    b2BodyDef groundbodyDef;
-    groundbodyDef.position.Set(0, 0);
-    b2Body *body = _world->CreateBody(&groundbodyDef);
-    
-    
-    //
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(_spRuner->getPositionX()/PTM_RATIO, _spRuner->getPositionY()/PTM_RATIO);
-    bodyDef.userData = _spRuner;
-    
-    //
-    b2Body* bodyRuner = _world->CreateBody(&bodyDef);
-    
-    b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(_spRuner->getContentSize().width/PTM_RATIO/2, _spRuner->getContentSize().height/PTM_RATIO/2);
-    
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
-    fixtureDef.friction = 0.0f;
-    
-    bodyRuner->CreateFixture(&fixtureDef);
-    
-    
-    int velocity= 8;
-    int position =1;
-    _world->Step(0.01,velocity,position);
-
-    
+//    //step :1
+//    b2Vec2 gravity;// step: 1
+//    gravity.Set(0.0f, 0.0); // direction of the sprite runs,base on the GL position,
+//
+//
+//    //step :2
+//    _world  = new b2World(gravity);
+//    _world->SetAllowSleeping(true); // pause all ,init the box2d world
+//    _world->SetContinuousPhysics(true); // resume the box2d
+//
+//
+//    //
+//    
+//    //step: 3, defint the body
+//    b2BodyDef groundbodyDef;
+//    groundbodyDef.position.Set(0, 0);
+//    b2Body *body = _world->CreateBody(&groundbodyDef);
+//    
+//    
+//    //
+//    b2BodyDef bodyDef;
+//    bodyDef.type = b2_dynamicBody;
+//    bodyDef.position.Set(_spRuner->getPositionX()/PTM_RATIO, _spRuner->getPositionY()/PTM_RATIO);
+//    bodyDef.userData = _spRuner;
+//    
+//    //
+//    b2Body* bodyRuner = _world->CreateBody(&bodyDef);
+//    
+//    b2PolygonShape dynamicBox;
+//    dynamicBox.SetAsBox(_spRuner->getContentSize().width/PTM_RATIO/2, _spRuner->getContentSize().height/PTM_RATIO/2);
+//    
+//    b2FixtureDef fixtureDef;
+//    fixtureDef.shape = &dynamicBox;
+//    fixtureDef.density = 1.0f;
+//    fixtureDef.friction = 0.0f;
+//    
+//    bodyRuner->CreateFixture(&fixtureDef);
+//    
+//    
+//    int velocity= 8;
+//    int position =1;
+//    _world->Step(0.01,velocity,position);
+//
+//    
     
     
     
