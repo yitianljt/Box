@@ -28,6 +28,8 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "GADBannerView.h"
+#import "YouMiConfig.h"
+
 
 @implementation AppController
 
@@ -92,6 +94,8 @@ static AppDelegate s_sharedApplication;
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
     cocos2d::Application::getInstance()->run();
+
+    [YouMiConfig launchWithAppID:@"72010756cb48d3b3" appSecret:@"4d32e61d5508b73e"];
 
     return YES;
 }

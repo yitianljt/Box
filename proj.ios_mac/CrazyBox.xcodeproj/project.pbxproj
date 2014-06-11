@@ -91,6 +91,13 @@
 		A9A50B09194039EF00267F82 /* card_play_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B05194039EF00267F82 /* card_play_btn_normal.png */; };
 		A9A50B0A194039EF00267F82 /* NewUi01_1.json in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B06194039EF00267F82 /* NewUi01_1.json */; };
 		A9A50B0B194039EF00267F82 /* video_cover_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9A50B07194039EF00267F82 /* video_cover_1.jpg */; };
+		A9BC56D319491D8B00672BE1 /* libOpenIDFA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56D119491D8B00672BE1 /* libOpenIDFA.a */; };
+		A9BC56D419491D8B00672BE1 /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56D219491D8B00672BE1 /* libYouMi.a */; };
+		A9BC56D819491E5E00672BE1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56D719491E5E00672BE1 /* Security.framework */; };
+		A9BC56DA19491E8B00672BE1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56D919491E8B00672BE1 /* CFNetwork.framework */; };
+		A9BC56DC19491E9C00672BE1 /* libedit.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */; };
+		A9BC56DE19491EAE00672BE1 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */; };
+		A9BC56E019491EEC00672BE1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */; };
 		A9E3323119449E14002D18CC /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E3323019449E14002D18CC /* square.png */; };
 		A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E3323F194590CF002D18CC /* ControlBannerView.cpp */; };
 		A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9E3324719459297002D18CC /* ControlBannerView.mm */; };
@@ -347,6 +354,22 @@
 		A9A50B05194039EF00267F82 /* card_play_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_play_btn_normal.png; sourceTree = "<group>"; };
 		A9A50B06194039EF00267F82 /* NewUi01_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NewUi01_1.json; sourceTree = "<group>"; };
 		A9A50B07194039EF00267F82 /* video_cover_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = video_cover_1.jpg; sourceTree = "<group>"; };
+		A9BC56C819491D8B00672BE1 /* YouMiConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiConfig.h; sourceTree = "<group>"; };
+		A9BC56C919491D8B00672BE1 /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
+		A9BC56CA19491D8B00672BE1 /* YouMiPointsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiPointsManager.h; sourceTree = "<group>"; };
+		A9BC56CB19491D8B00672BE1 /* YouMiSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiSpot.h; sourceTree = "<group>"; };
+		A9BC56CC19491D8B00672BE1 /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
+		A9BC56CD19491D8B00672BE1 /* YouMiWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWall.h; sourceTree = "<group>"; };
+		A9BC56CE19491D8B00672BE1 /* YouMiWallAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallAppModel.h; sourceTree = "<group>"; };
+		A9BC56CF19491D8B00672BE1 /* YouMiWallSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpot.h; sourceTree = "<group>"; };
+		A9BC56D019491D8B00672BE1 /* YouMiWallSpotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiWallSpotView.h; sourceTree = "<group>"; };
+		A9BC56D119491D8B00672BE1 /* libOpenIDFA.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOpenIDFA.a; sourceTree = "<group>"; };
+		A9BC56D219491D8B00672BE1 /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		A9BC56D719491E5E00672BE1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		A9BC56D919491E8B00672BE1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libedit.3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libedit.3.dylib; sourceTree = DEVELOPER_DIR; };
+		A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
+		A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
 		A9E3323019449E14002D18CC /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		A9E3323F194590CF002D18CC /* ControlBannerView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControlBannerView.cpp; path = ../Common/ControlBannerView.cpp; sourceTree = "<group>"; };
 		A9E33240194590CF002D18CC /* ControlBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlBannerView.h; path = ../Common/ControlBannerView.h; sourceTree = "<group>"; };
@@ -365,8 +388,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A50AC7193DC7B600267F82 /* CoreTelephony.framework in Frameworks */,
+				A9BC56E019491EEC00672BE1 /* libsqlite3.dylib in Frameworks */,
+				A9BC56DE19491EAE00672BE1 /* SpriteKit.framework in Frameworks */,
+				A9BC56DC19491E9C00672BE1 /* libedit.3.dylib in Frameworks */,
+				A9BC56DA19491E8B00672BE1 /* CFNetwork.framework in Frameworks */,
 				A9A50AC5193DC77700267F82 /* SystemConfiguration.framework in Frameworks */,
+				A9BC56D819491E5E00672BE1 /* Security.framework in Frameworks */,
+				A9A50AC7193DC7B600267F82 /* CoreTelephony.framework in Frameworks */,
 				A9A50AC3193DC76B00267F82 /* MessageUI.framework in Frameworks */,
 				A9A50AC1193DC75D00267F82 /* MediaPlayer.framework in Frameworks */,
 				A9A50ABF193DC74D00267F82 /* StoreKit.framework in Frameworks */,
@@ -376,9 +404,11 @@
 				1AC6FB2F180E99EB004C840B /* libchipmunk iOS.a in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2dx iOS.a in Frameworks */,
 				1AC6FB31180E99EB004C840B /* libcocos2dx-extensions iOS.a in Frameworks */,
+				A9BC56D419491D8B00672BE1 /* libYouMi.a in Frameworks */,
 				1AC6FB32180E99EB004C840B /* libCocosDenshion iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				A9BC56D319491D8B00672BE1 /* libOpenIDFA.a in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
@@ -434,6 +464,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9BC56C619491D8B00672BE1 /* YouMi */,
 				A9A50AEE193FCECC00267F82 /* GameResult */,
 				A9A50AAB193DC67D00267F82 /* GoogleMobileAdsSdkiOS-6.9.2 */,
 				A9A5096B193D78BF00267F82 /* GameMain */,
@@ -493,6 +524,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */,
+				A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */,
+				A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */,
+				A9BC56D919491E8B00672BE1 /* CFNetwork.framework */,
+				A9BC56D719491E5E00672BE1 /* Security.framework */,
 				A9A50AC6193DC7B600267F82 /* CoreTelephony.framework */,
 				A9A50AC4193DC77700267F82 /* SystemConfiguration.framework */,
 				A9A50AC2193DC76B00267F82 /* MessageUI.framework */,
@@ -687,6 +723,33 @@
 				A9A50B07194039EF00267F82 /* video_cover_1.jpg */,
 			);
 			path = ccs;
+			sourceTree = "<group>";
+		};
+		A9BC56C619491D8B00672BE1 /* YouMi */ = {
+			isa = PBXGroup;
+			children = (
+				A9BC56C719491D8B00672BE1 /* include */,
+				A9BC56D119491D8B00672BE1 /* libOpenIDFA.a */,
+				A9BC56D219491D8B00672BE1 /* libYouMi.a */,
+			);
+			name = YouMi;
+			path = ../Classes/YouMi;
+			sourceTree = "<group>";
+		};
+		A9BC56C719491D8B00672BE1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A9BC56C819491D8B00672BE1 /* YouMiConfig.h */,
+				A9BC56C919491D8B00672BE1 /* YouMiDelegateProtocol.h */,
+				A9BC56CA19491D8B00672BE1 /* YouMiPointsManager.h */,
+				A9BC56CB19491D8B00672BE1 /* YouMiSpot.h */,
+				A9BC56CC19491D8B00672BE1 /* YouMiView.h */,
+				A9BC56CD19491D8B00672BE1 /* YouMiWall.h */,
+				A9BC56CE19491D8B00672BE1 /* YouMiWallAppModel.h */,
+				A9BC56CF19491D8B00672BE1 /* YouMiWallSpot.h */,
+				A9BC56D019491D8B00672BE1 /* YouMiWallSpotView.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1016,10 +1079,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					"$(SRCROOT)/../cocos2d/cocos/ui/",
 					"$(SRCROOT)/../cocos2d/cocos/editor-support/cocostudio/",
+					"$(SRCROOT)/YouMi/include/",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2",
+					/Users/jintao/dev_proj/CrazyBox/Classes/YouMi,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "6A4716BF-223C-4041-BE10-1D5B428B32A7";
 				SDKROOT = iphoneos;
@@ -1050,10 +1117,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					"$(SRCROOT)/../cocos2d/cocos/ui/",
 					"$(SRCROOT)/../cocos2d/cocos/editor-support/cocostudio/",
+					"$(SRCROOT)/YouMi/include/",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2";
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2",
+					/Users/jintao/dev_proj/CrazyBox/Classes/YouMi,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "6A4716BF-223C-4041-BE10-1D5B428B32A7";
 				SDKROOT = iphoneos;
