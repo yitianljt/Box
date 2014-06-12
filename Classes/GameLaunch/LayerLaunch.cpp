@@ -11,6 +11,7 @@
 #include "cocos-ext.h"
 #include "UILayout.h"
 #include "CCSGUIReader.h"
+#include "ShowYouAd.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -35,6 +36,7 @@ bool LayerLaunch::init()
     Sprite* spNormal = Sprite::create();
     //MenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this, menu_selector(LayerLaunch::callbackStart));
     MenuItemLabel* btnItem = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 40), [](Object* sender){
+        ShowYouAd::shared()->showYouWallSpot();
     Director::getInstance()->replaceScene(GameControl::scene(kSceneGame));
                 });
     

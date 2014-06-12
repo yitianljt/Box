@@ -29,6 +29,7 @@
 #import "RootViewController.h"
 #import "GADBannerView.h"
 #import "YouMiConfig.h"
+#import "YouMiWall.h"
 
 
 @implementation AppController
@@ -59,7 +60,7 @@ static AppDelegate s_sharedApplication;
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
     _viewController.wantsFullScreenLayout = YES;
     _viewController.view = eaglView;
-    
+    /*
     bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     bannerView_.delegate = self;
     // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
@@ -72,7 +73,7 @@ static AppDelegate s_sharedApplication;
     
     GADRequest* adRequest = [GADRequest request];
     [bannerView_ loadRequest:adRequest];
-
+*/
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
@@ -96,6 +97,8 @@ static AppDelegate s_sharedApplication;
     cocos2d::Application::getInstance()->run();
 
     [YouMiConfig launchWithAppID:@"72010756cb48d3b3" appSecret:@"4d32e61d5508b73e"];
+    [YouMiWall enable];
+
 
     return YES;
 }

@@ -98,6 +98,8 @@
 		A9BC56DC19491E9C00672BE1 /* libedit.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */; };
 		A9BC56DE19491EAE00672BE1 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */; };
 		A9BC56E019491EEC00672BE1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */; };
+		A9BC56E31949202100672BE1 /* ShowYouAd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9BC56E11949202100672BE1 /* ShowYouAd.cpp */; };
+		A9BC56EB194921D400672BE1 /* ShowYouAd.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9BC56EA194921D400672BE1 /* ShowYouAd.mm */; };
 		A9E3323119449E14002D18CC /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E3323019449E14002D18CC /* square.png */; };
 		A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E3323F194590CF002D18CC /* ControlBannerView.cpp */; };
 		A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9E3324719459297002D18CC /* ControlBannerView.mm */; };
@@ -370,6 +372,9 @@
 		A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libedit.3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libedit.3.dylib; sourceTree = DEVELOPER_DIR; };
 		A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
 		A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libsqlite3.dylib; sourceTree = DEVELOPER_DIR; };
+		A9BC56E11949202100672BE1 /* ShowYouAd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShowYouAd.cpp; sourceTree = "<group>"; };
+		A9BC56E21949202100672BE1 /* ShowYouAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowYouAd.h; sourceTree = "<group>"; };
+		A9BC56EA194921D400672BE1 /* ShowYouAd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ShowYouAd.mm; sourceTree = "<group>"; };
 		A9E3323019449E14002D18CC /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		A9E3323F194590CF002D18CC /* ControlBannerView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControlBannerView.cpp; path = ../Common/ControlBannerView.cpp; sourceTree = "<group>"; };
 		A9E33240194590CF002D18CC /* ControlBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlBannerView.h; path = ../Common/ControlBannerView.h; sourceTree = "<group>"; };
@@ -667,6 +672,9 @@
 		A9A5096B193D78BF00267F82 /* GameMain */ = {
 			isa = PBXGroup;
 			children = (
+				A9BC56EA194921D400672BE1 /* ShowYouAd.mm */,
+				A9BC56E11949202100672BE1 /* ShowYouAd.cpp */,
+				A9BC56E21949202100672BE1 /* ShowYouAd.h */,
 				A9E3324719459297002D18CC /* ControlBannerView.mm */,
 				A9A5096E193D78BF00267F82 /* LayerGame.cpp */,
 				A9A5096F193D78BF00267F82 /* LayerGame.h */,
@@ -966,6 +974,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BC56E31949202100672BE1 /* ShowYouAd.cpp in Sources */,
+				A9BC56EB194921D400672BE1 /* ShowYouAd.mm in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A9A50951193D738500267F82 /* SpriteBlock.cpp in Sources */,
