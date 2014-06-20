@@ -100,6 +100,14 @@
 		A9BC56E019491EEC00672BE1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */; };
 		A9BC56E31949202100672BE1 /* ShowYouAd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9BC56E11949202100672BE1 /* ShowYouAd.cpp */; };
 		A9BC56EB194921D400672BE1 /* ShowYouAd.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9BC56EA194921D400672BE1 /* ShowYouAd.mm */; };
+		A9D5EF601953BC81005718E7 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D5EF5F1953BC81005718E7 /* libBPush.a */; };
+		A9D5EF731953BC8E005718E7 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D5EF661953BC8E005718E7 /* libBPush.a */; };
+		A9D5EF741953BC8E005718E7 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5EF691953BC8E005718E7 /* Base64.m */; };
+		A9D5EF751953BC8E005718E7 /* GzipCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5EF6C1953BC8E005718E7 /* GzipCompressor.m */; };
+		A9D5EF761953BC8E005718E7 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5EF6E1953BC8E005718E7 /* JSONKit.m */; };
+		A9D5EF771953BC8E005718E7 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5EF701953BC8E005718E7 /* OpenUDID.m */; };
+		A9D5EF781953BC8E005718E7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D5EF721953BC8E005718E7 /* Reachability.m */; };
+		A9D5EF811953BDD6005718E7 /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9D5EF801953BDD6005718E7 /* BPushConfig.plist */; };
 		A9E3323119449E14002D18CC /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E3323019449E14002D18CC /* square.png */; };
 		A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E3323F194590CF002D18CC /* ControlBannerView.cpp */; };
 		A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9E3324719459297002D18CC /* ControlBannerView.mm */; };
@@ -375,6 +383,21 @@
 		A9BC56E11949202100672BE1 /* ShowYouAd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShowYouAd.cpp; sourceTree = "<group>"; };
 		A9BC56E21949202100672BE1 /* ShowYouAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowYouAd.h; sourceTree = "<group>"; };
 		A9BC56EA194921D400672BE1 /* ShowYouAd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ShowYouAd.mm; sourceTree = "<group>"; };
+		A9D5EF5F1953BC81005718E7 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBPush.a; path = ../Classes/BDPush/lib/libBPush.a; sourceTree = "<group>"; };
+		A9D5EF651953BC8E005718E7 /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
+		A9D5EF661953BC8E005718E7 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		A9D5EF681953BC8E005718E7 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		A9D5EF691953BC8E005718E7 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		A9D5EF6A1953BC8E005718E7 /* Base64Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Defines.h; sourceTree = "<group>"; };
+		A9D5EF6B1953BC8E005718E7 /* GzipCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GzipCompressor.h; sourceTree = "<group>"; };
+		A9D5EF6C1953BC8E005718E7 /* GzipCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GzipCompressor.m; sourceTree = "<group>"; };
+		A9D5EF6D1953BC8E005718E7 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		A9D5EF6E1953BC8E005718E7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		A9D5EF6F1953BC8E005718E7 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		A9D5EF701953BC8E005718E7 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
+		A9D5EF711953BC8E005718E7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A9D5EF721953BC8E005718E7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A9D5EF801953BDD6005718E7 /* BPushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BPushConfig.plist; sourceTree = "<group>"; };
 		A9E3323019449E14002D18CC /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		A9E3323F194590CF002D18CC /* ControlBannerView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControlBannerView.cpp; path = ../Common/ControlBannerView.cpp; sourceTree = "<group>"; };
 		A9E33240194590CF002D18CC /* ControlBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlBannerView.h; path = ../Common/ControlBannerView.h; sourceTree = "<group>"; };
@@ -393,6 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D5EF601953BC81005718E7 /* libBPush.a in Frameworks */,
 				A9BC56E019491EEC00672BE1 /* libsqlite3.dylib in Frameworks */,
 				A9BC56DE19491EAE00672BE1 /* SpriteKit.framework in Frameworks */,
 				A9BC56DC19491E9C00672BE1 /* libedit.3.dylib in Frameworks */,
@@ -414,6 +438,7 @@
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				A9BC56D319491D8B00672BE1 /* libOpenIDFA.a in Frameworks */,
+				A9D5EF731953BC8E005718E7 /* libBPush.a in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
@@ -469,6 +494,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9D5EF631953BC8E005718E7 /* BDPush */,
 				A9BC56C619491D8B00672BE1 /* YouMi */,
 				A9A50AEE193FCECC00267F82 /* GameResult */,
 				A9A50AAB193DC67D00267F82 /* GoogleMobileAdsSdkiOS-6.9.2 */,
@@ -529,6 +555,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9D5EF5F1953BC81005718E7 /* libBPush.a */,
 				A9BC56DF19491EEC00672BE1 /* libsqlite3.dylib */,
 				A9BC56DD19491EAE00672BE1 /* SpriteKit.framework */,
 				A9BC56DB19491E9C00672BE1 /* libedit.3.dylib */,
@@ -617,6 +644,7 @@
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
+				A9D5EF801953BDD6005718E7 /* BPushConfig.plist */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -758,6 +786,43 @@
 				A9BC56D019491D8B00672BE1 /* YouMiWallSpotView.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		A9D5EF631953BC8E005718E7 /* BDPush */ = {
+			isa = PBXGroup;
+			children = (
+				A9D5EF641953BC8E005718E7 /* lib */,
+			);
+			name = BDPush;
+			path = ../Classes/BDPush;
+			sourceTree = "<group>";
+		};
+		A9D5EF641953BC8E005718E7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A9D5EF651953BC8E005718E7 /* BPush.h */,
+				A9D5EF661953BC8E005718E7 /* libBPush.a */,
+				A9D5EF671953BC8E005718E7 /* opensource */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		A9D5EF671953BC8E005718E7 /* opensource */ = {
+			isa = PBXGroup;
+			children = (
+				A9D5EF681953BC8E005718E7 /* Base64.h */,
+				A9D5EF691953BC8E005718E7 /* Base64.m */,
+				A9D5EF6A1953BC8E005718E7 /* Base64Defines.h */,
+				A9D5EF6B1953BC8E005718E7 /* GzipCompressor.h */,
+				A9D5EF6C1953BC8E005718E7 /* GzipCompressor.m */,
+				A9D5EF6D1953BC8E005718E7 /* JSONKit.h */,
+				A9D5EF6E1953BC8E005718E7 /* JSONKit.m */,
+				A9D5EF6F1953BC8E005718E7 /* OpenUDID.h */,
+				A9D5EF701953BC8E005718E7 /* OpenUDID.m */,
+				A9D5EF711953BC8E005718E7 /* Reachability.h */,
+				A9D5EF721953BC8E005718E7 /* Reachability.m */,
+			);
+			path = opensource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -953,6 +1018,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				A9D5EF811953BDD6005718E7 /* BPushConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,12 +1042,14 @@
 			files = (
 				A9BC56E31949202100672BE1 /* ShowYouAd.cpp in Sources */,
 				A9BC56EB194921D400672BE1 /* ShowYouAd.mm in Sources */,
+				A9D5EF751953BC8E005718E7 /* GzipCompressor.m in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A9A50951193D738500267F82 /* SpriteBlock.cpp in Sources */,
 				A9E33241194590CF002D18CC /* ControlBannerView.cpp in Sources */,
 				A9A50ADA193EEDF100267F82 /* CloudLayer.cpp in Sources */,
 				A9A50952193D738500267F82 /* SpriteRunner.cpp in Sources */,
+				A9D5EF741953BC8E005718E7 /* Base64.m in Sources */,
 				A9A5095E193D775D00267F82 /* LayerLaunch.cpp in Sources */,
 				A9A50AF5193FCFF600267F82 /* ResultLayer.cpp in Sources */,
 				A9A50966193D77C900267F82 /* BaseComScene.cpp in Sources */,
@@ -991,11 +1059,14 @@
 				A9A50AF1193FCEF700267F82 /* GameResult.cpp in Sources */,
 				A9A50973193D78BF00267F82 /* LayerGame.cpp in Sources */,
 				A9E3324819459297002D18CC /* ControlBannerView.mm in Sources */,
+				A9D5EF771953BC8E005718E7 /* OpenUDID.m in Sources */,
 				A9A50963193D779D00267F82 /* CommonTool.cpp in Sources */,
 				A9A5097B193D95D500267F82 /* ComSound.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				A9A5095F193D775D00267F82 /* SceneLaunch.cpp in Sources */,
+				A9D5EF781953BC8E005718E7 /* Reachability.m in Sources */,
+				A9D5EF761953BC8E005718E7 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,6 +1167,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2",
 					/Users/jintao/dev_proj/CrazyBox/Classes/YouMi,
+					/Users/jintao/dev_proj/CrazyBox/Classes/BDPush/lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "6A4716BF-223C-4041-BE10-1D5B428B32A7";
@@ -1134,6 +1206,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2",
 					/Users/jintao/dev_proj/CrazyBox/Classes/YouMi,
+					/Users/jintao/dev_proj/CrazyBox/Classes/BDPush/lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "6A4716BF-223C-4041-BE10-1D5B428B32A7";

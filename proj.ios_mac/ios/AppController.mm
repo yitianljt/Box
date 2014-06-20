@@ -23,6 +23,7 @@
  ****************************************************************************/
 
 #import "AppController.h"
+#import "BPush.h"
 #import "CCEAGLView.h"
 #import "cocos2d.h"
 #import "AppDelegate.h"
@@ -99,9 +100,31 @@ static AppDelegate s_sharedApplication;
     [YouMiConfig launchWithAppID:@"72010756cb48d3b3" appSecret:@"4d32e61d5508b73e"];
     [YouMiWall enable];
 
+    // 必须
+    [BPush setupChannel:launchOptions];
+    // 必须。参数对象必须实现(void)onMethod:(NSString*)method response:(NSDictionary*)data 方法,本示例中为 self
+    [BPush setDelegate:self];
+    
 
     return YES;
 }
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [BPush registerDeviceToken:deviceToken];
+    // 必须。可以在其它时机调用,只有在该方法返回(通过 onMethod:response:回调)绑定成功时,app 才能接收到 Push 消息。一个 app 绑定成功至少一次即可(如 果 access token 变更请重新绑定)。
+    [BPush bindChannel];
+}
+
+
+- (void) onMethod:(NSString*)method response:(NSDictionary*)data {
+    if ([BPushRequestMethod_Bind isEqualToString:method]) {
+        NSDictionary* res = [[NSDictionary alloc] initWithDictionary:data]; NSString *appid = [res valueForKey:BPushRequestAppIdKey];
+        NSString *userid = [res valueForKey:BPushRequestUserIdKey];
+        NSString *channelid = [res valueForKey:BPushRequestChannelIdKey];
+        int returnCode = [[res valueForKey:BPushRequestErrorCodeKey] intValue]; NSString *requestid = [res valueForKey:BPushRequestRequestIdKey];
+    } }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
