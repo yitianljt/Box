@@ -950,6 +950,9 @@ void RotateBy::update(float time)
         }
         else
         {
+            CCLOG("startX=%f,dx=%f",_startAngleZ_X,_angleZ_X * time);
+            CCLOG("startY=%f,dy=%f",_startAngleZ_Y,_angleZ_Y * time);
+
             _target->setRotationSkewX(_startAngleZ_X + _angleZ_X * time);
             _target->setRotationSkewY(_startAngleZ_Y + _angleZ_Y * time);
         }

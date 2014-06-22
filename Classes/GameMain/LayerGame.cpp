@@ -47,7 +47,7 @@ bool LayerGame::init()
     //_spRuner->addBoxBodyForSprite(_spRuner);
     auto body = PhysicsBody::createBox(Size(60,60));
     _spRuner->setPhysicsBody(body);
-    body->setRotationEnable(true);
+    //body->setRotationEnable(true);
     addChild(_spRuner);
     //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
     this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
@@ -235,7 +235,7 @@ void LayerGame::updateGround(float fDelta)
         if (spBlock && isCollison(spBlock, _spRuner)) {
             _spRuner->dead();
         }*/
-        spBlock->setPositionX(spBlock->getPositionX()-8.0);
+        //spBlock->setPositionX(spBlock->getPositionX()-8.0);
 
     }
 

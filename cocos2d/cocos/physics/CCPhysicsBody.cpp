@@ -775,8 +775,11 @@ void PhysicsBody::update(float delta)
         
         _positionResetTag = true;
         _rotationResetTag = true;
+        CCLOG("TTTTTTT");
         _node->setPosition(position);
         _node->setRotation(rotation);
+        CCLOG("FFFFFFF");
+
         _positionResetTag = false;
         _rotationResetTag = false;
         

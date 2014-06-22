@@ -257,6 +257,7 @@ float Node::getRotation() const
 /// rotation setter
 void Node::setRotation(float rotation)
 {
+    CCLOG("zx=%f,rotation=%f",_rotationZ_X,rotation);
     if (_rotationZ_X == rotation)
         return;
     
@@ -266,6 +267,7 @@ void Node::setRotation(float rotation)
 #if CC_USE_PHYSICS
     if (_physicsBody && !_physicsBody->_rotationResetTag)
     {
+        CCLOG("Node::setRotation(floa");
         Scene* scene = _physicsBody->getWorld() != nullptr ? &_physicsBody->getWorld()->getScene() : nullptr;
         updatePhysicsBodyRotation(scene);
     }
@@ -311,10 +313,12 @@ Vec3 Node::getRotation3D() const
 
 void Node::setRotationSkewX(float rotationX)
 {
+    CCLOG("%f",rotationX);
     if (_rotationZ_X == rotationX)
         return;
     
-    _rotationZ_X = rotationX;
+    //_rotationZ_X = rotationX;
+    this->setRotation(rotationX);
     _transformUpdated = _transformDirty = _inverseDirty = true;
 }
 
@@ -328,7 +332,8 @@ void Node::setRotationSkewY(float rotationY)
     if (_rotationZ_Y == rotationY)
         return;
     
-    _rotationZ_Y = rotationY;
+    //_rotationZ_Y = rotationY;
+    this->setRotation(_rotationZ_Y);
     _transformUpdated = _transformDirty = _inverseDirty = true;
 }
 
@@ -418,6 +423,7 @@ const Vec2& Node::getPosition() const
 /// position setter
 void Node::setPosition(const Vec2& position)
 {
+    //
     if (_position.equals(position))
         return;
     
@@ -427,6 +433,7 @@ void Node::setPosition(const Vec2& position)
 #if CC_USE_PHYSICS
     if (_physicsBody != nullptr && !_physicsBody->_positionResetTag)
     {
+        CCLOG("node::setPosition");
         Scene* scene = _physicsBody->getWorld() != nullptr ? &_physicsBody->getWorld()->getScene() : nullptr;
         updatePhysicsBodyPosition(scene);
     }

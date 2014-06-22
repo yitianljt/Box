@@ -96,12 +96,10 @@ void SpriteRunner::jump()
     
     
     
-    ActionInterval* jumpto = CCJumpTo ::create(1, _ptJump, this->getContentSize().height*3+40, 1 );
-    ActionInterval * rotateBy1 = RotateBy::create(0.5, 45);
-    ActionInterval * rotateBy2 = RotateBy::create(0.5, 180);
-    //this->setRotation(45 );
-    this->runAction(rotateBy1);
-    return;
+    JumpTo* jumpto = JumpTo ::create(1, _ptJump, this->getContentSize().height*3+40, 1 );
+    RotateBy * rotateBy1 = RotateBy::create(0.5, 180);
+    RotateBy * rotateBy2 = RotateBy::create(0.5, 180);
+
     
     auto call = [this](){CCLOG("test");};
     
