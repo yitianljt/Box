@@ -27,8 +27,12 @@ bool SpriteBlock::init()
          this->setColor(Color3B(140,153,151 ));
         //this->setContentSize(Size(getContentSize().width-2,getContentSize().height-2));
          auto body = PhysicsBody::createBox(Size(60,60));
+         body->setCategoryBitmask(1);    // 0001
+         body->setCollisionBitmask(1);   // 0001
+         body->setContactTestBitmask(1); // 0001
          this->setPhysicsBody(body);
-        return true;
+         body->setVelocity(Vec2(-200, 0));
+         return true;
     }
     return false;
 }

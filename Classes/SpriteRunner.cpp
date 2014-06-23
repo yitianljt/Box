@@ -30,46 +30,21 @@ bool SpriteRunner::init() {
     if (initWithFile("square.png")) {
         Size originSize = this->getContentSize();
         CCLOG("%f,%f",originSize.width,originSize.height);
+        
+        auto body = PhysicsBody::createBox(Size(60,60));
+        body->setCategoryBitmask(1);    // 0001
+        body->setCollisionBitmask(1);   // 0001
+        body->setContactTestBitmask(1); // 0001
+        this->setPhysicsBody(body);
+        
         return true;
     }
     
     return false;
 }
-/*
-void SpriteRunner::findTarget(cocos2d::CCPoint &pos) {
-    this->setPosition(pos, CCDirector::getInstance()->getVisibleSize());
-}
-
-void SpriteRunner::move() {
-    this->stopAllActions();
-    this->runAction(Sequence::create(MoveTo::create(m_fDuration, Point(this->getPositionX(), this->m_fCenterToBottom+VisibleRect::leftBottom().y)), CallFunc::create(CC_CALLBACK_0(SpriteArrow::fadeOut, this)), NULL));
-}
-
-void SpriteRunner::move(float duration) {
-    this->m_fDuration = duration;
-    this->move();
-}
-
-void SpriteRunner::fadeOut() {
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("end.mp3");
-    this->m_bValid = false;
-    this->runAction(Sequence::create(FadeOut::create(0.3f), CallFunc::create(CC_CALLBACK_0(SpriteArrow::onFadeOut, this)), NULL));
-}
-
-void SpriteRunner::onFadeOut() {
-    SceneMain* sceneMain = dynamic_cast<SceneMain*>(getScene());
-    
-    if(sceneMain) {
-        sceneMain->updateArrowsNumShow();
-    }
-    this->removeFromParent();
-}*/
 
 void SpriteRunner::dead()
 {
-//    ParticleSystem* m_emitter1 = ParticleSystemQuad::create("testoc.plist");
-//    addChild(m_emitter1);
-//    this->getParent()->addChild(m_emitter1);
     CCLOG("dead");
 }
 

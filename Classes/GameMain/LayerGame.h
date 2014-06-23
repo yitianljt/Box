@@ -70,6 +70,8 @@ public:
     
     void gameover();
     void setPhyWorld(cocos2d::PhysicsWorld* world){ _world = world;};
+    bool onContactBegin(cocos2d::PhysicsContact& contact);
+
     
 private:
     

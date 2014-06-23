@@ -44,10 +44,7 @@ bool LayerGame::init()
     
     _spRuner = SpriteRunner::create();
     _spRuner->setPosition(Point(200,290));
-    //_spRuner->addBoxBodyForSprite(_spRuner);
-    auto body = PhysicsBody::createBox(Size(60,60));
-    _spRuner->setPhysicsBody(body);
-    //body->setRotationEnable(true);
+    _spRuner->setTag(115);
     addChild(_spRuner);
     //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
     this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
@@ -93,9 +90,6 @@ bool LayerGame::init()
 
     //一进入来移动
     this->schedule(schedule_selector(LayerGame::updateGround), 0.01f);
-
-    
-    
     start();
     return true;
 }
@@ -103,6 +97,16 @@ bool LayerGame::init()
 void LayerGame::onEnter()
 {
     CCLayer::onEnter();
+    
+    Layer::onEnter();
+
+    
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(LayerGame::onContactBegin, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
+    
+    
+    //Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener,10);
 }
 void LayerGame::onExit()
 {
@@ -221,7 +225,6 @@ void LayerGame::updateGround(float fDelta)
         if (spBlock && isCollison(spBlock, _spRuner)) {
             _spRuner->dead();
         }*/
-        spBlock->setPositionX(spBlock->getPositionX()-8.0);
 
     }
     _spGround1->setPosition(_spGround1->getPosition()+ Point(-8,0));
@@ -365,52 +368,25 @@ void LayerGame::addBlockType(int iType)
 
 void LayerGame::initPhysics()
 {
-//    //step :1
-//    b2Vec2 gravity;// step: 1
-//    gravity.Set(0.0f, 0.0); // direction of the sprite runs,base on the GL position,
-//
-//
-//    //step :2
-//    _world  = new b2World(gravity);
-//    _world->SetAllowSleeping(true); // pause all ,init the box2d world
-//    _world->SetContinuousPhysics(true); // resume the box2d
-//
-//
-//    //
-//    
-//    //step: 3, defint the body
-//    b2BodyDef groundbodyDef;
-//    groundbodyDef.position.Set(0, 0);
-//    b2Body *body = _world->CreateBody(&groundbodyDef);
-//    
-//    
-//    //
-//    b2BodyDef bodyDef;
-//    bodyDef.type = b2_dynamicBody;
-//    bodyDef.position.Set(_spRuner->getPositionX()/PTM_RATIO, _spRuner->getPositionY()/PTM_RATIO);
-//    bodyDef.userData = _spRuner;
-//    
-//    //
-//    b2Body* bodyRuner = _world->CreateBody(&bodyDef);
-//    
-//    b2PolygonShape dynamicBox;
-//    dynamicBox.SetAsBox(_spRuner->getContentSize().width/PTM_RATIO/2, _spRuner->getContentSize().height/PTM_RATIO/2);
-//    
-//    b2FixtureDef fixtureDef;
-//    fixtureDef.shape = &dynamicBox;
-//    fixtureDef.density = 1.0f;
-//    fixtureDef.friction = 0.0f;
-//    
-//    bodyRuner->CreateFixture(&fixtureDef);
-//    
-//    
-//    int velocity= 8;
-//    int position =1;
-//    _world->Step(0.01,velocity,position);
-//
-//    
+    
+}
+
+
+bool LayerGame::onContactBegin(PhysicsContact& contact)
+{
+    auto nodeA = (Sprite*)contact.getShapeA()->getBody()->getNode();
+    auto nodeB = (Sprite*)contact.getShapeB()->getBody()->getNode();
     
     
-    
-    
+    if (nodeA != NULL || nodeB != NULL )
+    {
+        CCLOG("Tag = %d, TagB = %d",nodeA->getTag(),nodeB->getTag());
+
+        if( (nodeA->getTag() == 115) ||(nodeB->getTag() == 115))
+        {
+            CCLOG("Game Over");
+        }
+        return true;
+    }
+    return true;
 }
