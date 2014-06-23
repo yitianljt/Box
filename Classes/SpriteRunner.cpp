@@ -91,19 +91,13 @@ void SpriteRunner::jump()
         //return;
     }
     this->stopAllActions();
-
     _runnerState = kRunerJump;
-    
-    
     
     JumpTo* jumpto = JumpTo ::create(1, _ptJump, this->getContentSize().height*3+40, 1 );
     RotateBy * rotateBy1 = RotateBy::create(0.5, 180);
     RotateBy * rotateBy2 = RotateBy::create(0.5, 180);
 
-    
     auto call = [this](){CCLOG("test");};
-    
-    
     FiniteTimeAction * spawn =Spawn::create(jumpto ,Sequence::create(rotateBy1,rotateBy2,NULL),NULL);
     this->runAction(Sequence::create(spawn,CallFunc::create([&](){this->_runnerState = kRunerWalk;}), CallFunc::create([&](){
         //回调动作代码

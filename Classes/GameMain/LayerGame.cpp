@@ -53,10 +53,6 @@ bool LayerGame::init()
     this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
     addChild(m_pSpriteBatchNode,kCloudOrder);
     
-
-    
-    
-    
     auto dispatcher = Director::getInstance()->getEventDispatcher();
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(LayerGame::onTouchBegan,this);
@@ -68,13 +64,10 @@ bool LayerGame::init()
     //云朵背景
     _parallax = ParallaxNode::create();
     this->addChild(_parallax,kCloudOrder);
-    
     _cloudBackLayer = CloudLayer::create(BSWinSize().width, kCloudBack);
     _parallax->addChild(_cloudBackLayer, 1, Vec2(0.5,0), Vec2(0,0) );
-
     _cloudFrontLayer = CloudLayer::create(BSWinSize().width, kCloudFront);
     _parallax->addChild(_cloudFrontLayer, 2, Vec2(0.7,0), Vec2(0,0) );
-    
     
     
     _parallax2 = ParallaxNode::create();
@@ -148,9 +141,6 @@ void LayerGame::update(float fDelta)
     {
         _parallax2->setPositionX(_parallax->getPositionX()+_cloudBackLayer->getcloudLayerWidth()*2);
     }
-    
-    
-    
 }
 
 bool LayerGame::onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent)
@@ -193,10 +183,7 @@ void LayerGame::gameover()
 {
     this->unschedule(schedule_selector(LayerGame::update));
     this->unschedule(schedule_selector(LayerGame::addBlock));
-    
     //Director::getInstance()->pushScene(GameControl::scene(SceneTag::kSceneResult));
-
-
 }
 
 void LayerGame::playBgMusic()
@@ -211,7 +198,6 @@ void LayerGame::stopBgMusic()
 
 void LayerGame::addBlockType()
 {
-    
     int itype = rand()%5;
     setCurStartPos(getDefaultPos());
     addBlockType(itype);
@@ -235,10 +221,9 @@ void LayerGame::updateGround(float fDelta)
         if (spBlock && isCollison(spBlock, _spRuner)) {
             _spRuner->dead();
         }*/
-        //spBlock->setPositionX(spBlock->getPositionX()-8.0);
+        spBlock->setPositionX(spBlock->getPositionX()-8.0);
 
     }
-
     _spGround1->setPosition(_spGround1->getPosition()+ Point(-8,0));
     _spGround2->setPosition(_spGround2->getPosition()+ Point(-8,0));
     
@@ -249,13 +234,10 @@ void LayerGame::updateGround(float fDelta)
     {
         _spGround2->setPositionX(_spGround1->getPositionX()+_spGround1->getContentSize().width);
     }
-
-
 }
 
 void LayerGame::addBlockType(int iType)
 {
-    iType = 0;
     switch (iType) {
         case 0:
         {
@@ -263,10 +245,6 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock);
             spBlock->setPosition(getCurStartPos());
             spBlock->setisNeedCount(true);
-            
-            auto body = PhysicsBody::createBox(Size(60,60));
-            spBlock->setPhysicsBody(body);
-            
             break;
 
         }
@@ -280,11 +258,6 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
             spBlock2->setisNeedCount(true);
-            
-            //spBlock->move();
-            //spBlock2->move();
-
-
             break;
         }
         case 2:
@@ -297,8 +270,6 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(0,spBlock->getContentSize().height));
             spBlock2->setisNeedCount(true);
-//            spBlock->move();
-//            spBlock2->move();
             break;
         }
             
@@ -312,16 +283,10 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
             
-            
             SpriteBlock* spBlock3 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width*2,0));
             spBlock3->setisNeedCount(true);
-            
-//            spBlock->move();
-//            spBlock2->move();
-//            spBlock3->move();
-            
             break;
         }
             
@@ -342,13 +307,7 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
             spBlock3->setisNeedCount(true);
-            
-//            spBlock->move();
-//            spBlock2->move();
-//            spBlock3->move();
-            
             break;
-
         }
             
         case 5:
@@ -368,11 +327,6 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,spBlock->getContentSize().width));
             spBlock3->setisNeedCount(true);
-            
-//            spBlock->move();
-//            spBlock2->move();
-//            spBlock3->move();
-            
             break;
         
         }

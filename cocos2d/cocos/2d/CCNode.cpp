@@ -257,7 +257,6 @@ float Node::getRotation() const
 /// rotation setter
 void Node::setRotation(float rotation)
 {
-    CCLOG("zx=%f,rotation=%f",_rotationZ_X,rotation);
     if (_rotationZ_X == rotation)
         return;
     
@@ -433,7 +432,6 @@ void Node::setPosition(const Vec2& position)
 #if CC_USE_PHYSICS
     if (_physicsBody != nullptr && !_physicsBody->_positionResetTag)
     {
-        CCLOG("node::setPosition");
         Scene* scene = _physicsBody->getWorld() != nullptr ? &_physicsBody->getWorld()->getScene() : nullptr;
         updatePhysicsBodyPosition(scene);
     }
