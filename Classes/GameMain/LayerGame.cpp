@@ -380,10 +380,16 @@ bool LayerGame::onContactBegin(PhysicsContact& contact)
     
     if (nodeA != NULL || nodeB != NULL )
     {
+        
+
         CCLOG("Tag = %d, TagB = %d",nodeA->getTag(),nodeB->getTag());
 
         if( (nodeA->getTag() == 115) ||(nodeB->getTag() == 115))
         {
+            CCDirector::sharedDirector()->pause();
+
+            contact.getShapeA()->getBody()->removeFromWorld();
+            contact.getShapeB()->getBody()->removeFromWorld();
             CCLOG("Game Over");
         }
         return true;
