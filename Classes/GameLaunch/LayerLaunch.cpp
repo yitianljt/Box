@@ -33,11 +33,10 @@ bool LayerLaunch::init()
     
     LayerColor* layerBg = CCLayerColor::create(Color4B(255, 255, 0, 0), sizeWin.width, sizeWin.height);
     addChild(layerBg,0);
-    Sprite* spNormal = Sprite::create();
     //MenuItemLabel* btnItem = CCMenuItemLabel::create(CCLabelTTF::create("开始游戏", "黑体", 40), this, menu_selector(LayerLaunch::callbackStart));
-    MenuItemLabel* btnItem = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 40), [](Object* sender){
-        ShowYouAd::shared()->showYouWallSpot();
-    Director::getInstance()->replaceScene(GameControl::scene(kSceneGame));
+    MenuItemLabel* btnItem = MenuItemLabel::create(LabelTTF::create("开始游戏", "黑体", 40), [](Ref* sender){
+        //ShowYouAd::shared()->showYouWallSpot();
+        Director::getInstance()->replaceScene(GameControl::scene(kSceneGame));
                 });
     
 

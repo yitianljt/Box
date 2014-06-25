@@ -25,6 +25,13 @@ typedef enum {
 }GameLevel;
 
 typedef enum {
+    kWaitStart,
+    kPlaying,
+    kGameOver
+    
+}kGameStatus;
+
+typedef enum {
     kBgLayerOrder,
     kGroundOrder,
     kCloudOrder,
@@ -46,7 +53,7 @@ public:
     
     //void retry();
 
-    void start();
+    void start(cocos2d::Ref* pSender = nullptr);
     void stop();
     void addBlock(float fDelta);
     void addBlockType();
@@ -74,7 +81,7 @@ public:
 
     
 private:
-    
+    int  _gameStatus;
     void playBgMusic();
     void stopBgMusic();
     SpriteRunner* _spRuner;

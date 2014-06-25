@@ -42,13 +42,8 @@ bool LayerGame::init()
     LayerGradient* layer1 = LayerGradient::create(Color4B(110,210,200,255), Color4B(110,210,190,255), Point(.0f, .0f));
     addChild(layer1, kBgLayerOrder);
     
-    _spRuner = SpriteRunner::create();
-    _spRuner->setPosition(Point(200,290));
-    _spRuner->setTag(115);
-    addChild(_spRuner);
-    //CCDirector::getInstance()->getEventDispatcherer()->addTargetedDelegate(this, 0, true);
-    this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
-    addChild(m_pSpriteBatchNode,kCloudOrder);
+    _spRuner = nullptr;
+    m_pSpriteBatchNode = nullptr;
     
     auto dispatcher = Director::getInstance()->getEventDispatcher();
 	auto listener = EventListenerTouchOneByOne::create();
@@ -87,9 +82,7 @@ bool LayerGame::init()
     this->addChild(_spGround2,kGroundOrder);
     
     CCLOG("%f,%f (2) %f,%f",_spGround1->getPositionX(),_spGround1->getPositionY(),_spGround2->getPositionX(),_spGround2->getPositionY());
-
-    //一进入来移动
-    this->schedule(schedule_selector(LayerGame::updateGround), 0.01f);
+    
     start();
     return true;
 }
@@ -118,9 +111,30 @@ void LayerGame::callbackStart(Ref* obj)
     //PlayVideo::playVideo("opening_video.mp4",(CCLayer*)this);
 }
 
-void LayerGame::start()
+void LayerGame::start(Ref* pSender)
 {
+    _gameStatus = kPlaying;
     playBgMusic();
+    
+    //清除主角
+    if (_spRuner) {
+        _spRuner->removeFromParent();
+    }
+    _spRuner = SpriteRunner::create();
+    _spRuner->setPosition(Point(200,290));
+    _spRuner->setTag(115);
+    addChild(_spRuner);
+    if (m_pSpriteBatchNode) {
+        m_pSpriteBatchNode->removeFromParent();
+    }
+    this->m_pSpriteBatchNode = CCSpriteBatchNode::create("square.png", 100);
+    addChild(m_pSpriteBatchNode,kCloudOrder);
+    //清除障碍物
+    
+    
+    
+    //一进入来移动
+    this->schedule(schedule_selector(LayerGame::updateGround), 0.01f);
     this->schedule(schedule_selector(LayerGame::update), 0.01f);
     this->schedule(schedule_selector(LayerGame::addBlock), 3.0f );
 }
@@ -149,6 +163,9 @@ void LayerGame::update(float fDelta)
 
 bool LayerGame::onTouchBegan(cocos2d::Touch* pTouch, cocos2d::Event* pEvent)
 {
+    if (_gameStatus != kPlaying) {
+        return false;
+    }
     return true;
 }
 
@@ -185,8 +202,39 @@ bool LayerGame::isCollison(Sprite* spRuner,Sprite* spBlock)
 
 void LayerGame::gameover()
 {
+    _gameStatus = kGameOver;
+    
+    Point ptRuner = _spRuner->getPosition();
+    _spRuner->setVisible(false);
+    _spRuner->removeFromParent();
+    _spRuner = nullptr;
+    Size sizeWin = Director::getInstance()->getWinSize();
     this->unschedule(schedule_selector(LayerGame::update));
     this->unschedule(schedule_selector(LayerGame::addBlock));
+    this->unschedule(schedule_selector(LayerGame::updateGround));
+    
+    
+    ParticleSystemQuad *particle = ParticleSystemQuad::create("box.plist");
+    particle->setDuration(0.4);
+    particle->setAutoRemoveOnFinish(true);
+    particle->setPosition(ptRuner);
+    this->addChild(particle);
+    //结果显示
+    int iCount = 10;
+    __String* strResult = __String::createWithFormat("你闯过了%d",iCount);
+    LabelTTF* labelReault  = LabelTTF::create(strResult->getCString(), "黑体", 40  );
+    
+    labelReault->setPosition(Point(sizeWin.width/2,sizeWin.height/2));
+    addChild(labelReault,10);
+
+    MenuItemLabel* itemLabel = MenuItemLabel::create(LabelTTF::create("再来一局", "黑体", 40), this, menu_selector(LayerGame::start));
+    Menu* menu_ = Menu::create(itemLabel,nullptr);
+    menu_->setPosition(labelReault->getPosition()+Point(0,100));
+    addChild(menu_);
+    
+    
+    
+    
     //Director::getInstance()->pushScene(GameControl::scene(SceneTag::kSceneResult));
 }
 
@@ -219,13 +267,10 @@ void LayerGame::updateGround(float fDelta)
     std::vector<Sprite*>  blockNodes = m_pSpriteBatchNode->getDescendants();
     for (auto child:blockNodes )
     {
-        
-        SpriteBlock* spBlock = dynamic_cast<SpriteBlock*>(child);
-        /*
-        if (spBlock && isCollison(spBlock, _spRuner)) {
-            _spRuner->dead();
-        }*/
-
+        if (child->getPositionX()<-60)
+        {
+            child->removeFromParentAndCleanup(true);
+        }
     }
     _spGround1->setPosition(_spGround1->getPosition()+ Point(-8,0));
     _spGround2->setPosition(_spGround2->getPosition()+ Point(-8,0));
@@ -249,7 +294,6 @@ void LayerGame::addBlockType(int iType)
             spBlock->setPosition(getCurStartPos());
             spBlock->setisNeedCount(true);
             break;
-
         }
         case 1:
         {
@@ -305,7 +349,6 @@ void LayerGame::addBlockType(int iType)
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(0,spBlock->getContentSize().height));
             
-            
             SpriteBlock* spBlock3 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
@@ -320,18 +363,14 @@ void LayerGame::addBlockType(int iType)
             SpriteBlock* spBlock = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock);
             spBlock->setPosition(getCurStartPos());
-            
             SpriteBlock* spBlock2 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
-            
-            
             SpriteBlock* spBlock3 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,spBlock->getContentSize().width));
             spBlock3->setisNeedCount(true);
             break;
-        
         }
         case 6:
         {
@@ -339,24 +378,14 @@ void LayerGame::addBlockType(int iType)
             SpriteBlock* spBlock = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock);
             spBlock->setPosition(getCurStartPos());
-            
             SpriteBlock* spBlock2 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock2);
             spBlock2->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width,0));
-            
-            
             SpriteBlock* spBlock3 = SpriteBlock::create();
             m_pSpriteBatchNode->addChild(spBlock3);
             spBlock3->setPosition(getCurStartPos()+Point(spBlock->getContentSize().width*2,0));
             spBlock3->setisNeedCount(true);
-            
-//            spBlock->move();
-//            spBlock2->move();
-//            spBlock3->move();
-            
             break;
-
-            
         }
 
         
@@ -376,20 +405,23 @@ bool LayerGame::onContactBegin(PhysicsContact& contact)
 {
     auto nodeA = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto nodeB = (Sprite*)contact.getShapeB()->getBody()->getNode();
-    
-    
+    if (_gameStatus != kPlaying)
+    {
+        return true;
+    }
+
     if (nodeA != NULL || nodeB != NULL )
     {
-        
-
         CCLOG("Tag = %d, TagB = %d",nodeA->getTag(),nodeB->getTag());
-
         if( (nodeA->getTag() == 115) ||(nodeB->getTag() == 115))
         {
-            CCDirector::sharedDirector()->pause();
-
-            contact.getShapeA()->getBody()->removeFromWorld();
-            contact.getShapeB()->getBody()->removeFromWorld();
+            _spRuner->getPhysicsBody()->removeFromWorld();
+            Vector<cocos2d::Node*> blockNodes  = m_pSpriteBatchNode->getChildren();
+            for (auto child:blockNodes )
+            {
+                child->getPhysicsBody()->removeFromWorld();
+            }
+            this->gameover();
             CCLOG("Game Over");
         }
         return true;
