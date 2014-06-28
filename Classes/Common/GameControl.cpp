@@ -24,7 +24,7 @@ Scene* GameControl::scene(SceneTag tag)
         {
             scene = Scene::createWithPhysics();
             scene->getPhysicsWorld()->setGravity(Vec2(0,0));
-            scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+            //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
             LayerGame* layerBg = LayerGame::create();
             layerBg->setPhyWorld(scene->getPhysicsWorld());
             scene->addChild(layerBg,0);

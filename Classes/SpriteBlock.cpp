@@ -31,7 +31,7 @@ bool SpriteBlock::init()
          body->setCollisionBitmask(1);   // 0001
          body->setContactTestBitmask(1); // 0001
          this->setPhysicsBody(body);
-         body->setVelocity(Vec2(-200, 0));
+         body->setVelocity(Vec2(-300, 0));
          return true;
     }
     return false;

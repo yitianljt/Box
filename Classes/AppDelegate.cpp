@@ -38,7 +38,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     
     
-    Scene *pScene = GameControl::scene(kSceneLaunch);
+    Scene *pScene = GameControl::scene(kSceneGame);
     
     // run
     director->runWithScene(pScene);

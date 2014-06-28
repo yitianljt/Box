@@ -13,6 +13,7 @@
 #include "CloudLayer.h"
 #include "Common.h"
 #include "cocos2d.h"
+#include "cocos-ext.h"
 #include "Box2D/Box2D.h"
 #include "SpriteRunner.h"
 
@@ -72,7 +73,7 @@ public:
 
     
     
-    void callbackStart(cocos2d::Ref* obj);
+    void callbackStart(cocos2d::Ref* obj,cocos2d::extension::Control::EventType type);
     bool isCollison(cocos2d::Sprite* sp1,cocos2d::Sprite* sp2);
     
     void gameover();

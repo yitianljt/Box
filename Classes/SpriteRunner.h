@@ -53,7 +53,7 @@ protected:
     //int m_iEggs;
     //bool m_bAccRight;
     RunerState _runnerState;
-    cocos2d::CCPoint _ptJump;
+    cocos2d::Point _ptJump;
 
     
 };

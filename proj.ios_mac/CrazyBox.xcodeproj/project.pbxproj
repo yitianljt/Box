@@ -64,6 +64,7 @@
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		A91D313A195921FF009C7EEA /* box.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91D3138195921FF009C7EEA /* box.plist */; };
 		A91D313B195921FF009C7EEA /* confettiPop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A91D3139195921FF009C7EEA /* confettiPop@2x.png */; };
+		A980DB6E195F17E600E9B0E5 /* start_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = A980DB6D195F17E600E9B0E5 /* start_btn.png */; };
 		A9A50951193D738500267F82 /* SpriteBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A5094D193D738500267F82 /* SpriteBlock.cpp */; };
 		A9A50952193D738500267F82 /* SpriteRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A5094F193D738500267F82 /* SpriteRunner.cpp */; };
 		A9A5095E193D775D00267F82 /* LayerLaunch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A5095A193D775D00267F82 /* LayerLaunch.cpp */; };
@@ -313,6 +314,7 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		A91D3138195921FF009C7EEA /* box.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = box.plist; sourceTree = "<group>"; };
 		A91D3139195921FF009C7EEA /* confettiPop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "confettiPop@2x.png"; sourceTree = "<group>"; };
+		A980DB6D195F17E600E9B0E5 /* start_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_btn.png; sourceTree = "<group>"; };
 		A9A5094D193D738500267F82 /* SpriteBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteBlock.cpp; path = ../Classes/SpriteBlock.cpp; sourceTree = "<group>"; };
 		A9A5094E193D738500267F82 /* SpriteBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteBlock.h; path = ../Classes/SpriteBlock.h; sourceTree = "<group>"; };
 		A9A5094F193D738500267F82 /* SpriteRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteRunner.cpp; path = ../Classes/SpriteRunner.cpp; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A980DB6D195F17E600E9B0E5 /* start_btn.png */,
 				A9E3323019449E14002D18CC /* square.png */,
 				A9A50B03194039EF00267F82 /* ccs */,
 				A9A50AE7193F3BDD00267F82 /* ground.png */,
@@ -1015,6 +1018,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				A9A50B09194039EF00267F82 /* card_play_btn_normal.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				A980DB6E195F17E600E9B0E5 /* start_btn.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				A9E3323119449E14002D18CC /* square.png in Resources */,
@@ -1148,6 +1152,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1182,6 +1187,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1210,7 +1216,7 @@
 					"$(SRCROOT)/YouMi/include/",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LIBRARY_SEARCH_PATHS = (
 					"/Users/jintao/dev_proj/CrazyBox/Classes/GoogleMobileAdsSdkiOS-6.9.2",
 					/Users/jintao/dev_proj/CrazyBox/Classes/YouMi,
@@ -1221,6 +1227,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

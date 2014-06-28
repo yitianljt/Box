@@ -16,9 +16,10 @@
 #include "SpriteRunner.h"
 #include "SpriteBlock.h"
 #include <vector>
-
+#include "cocos-ext.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 #define PTM_RATIO 32
 
@@ -41,6 +42,20 @@ bool LayerGame::init()
     //背景
     LayerGradient* layer1 = LayerGradient::create(Color4B(110,210,200,255), Color4B(110,210,190,255), Point(.0f, .0f));
     addChild(layer1, kBgLayerOrder);
+    /*
+    MenuItemSprite* item= MenuItemSprite::create(Sprite::create("start_btn.png"),Sprite::create("start_btn.png") , this,menu_selector(LayerGame::callbackStart));
+    Menu * menu_ = Menu::create(item,nullptr);
+    menu_->setPosition(Point(BSWinSize().width/2,BSWinSize().height/2));
+    layer1->addChild(menu_,100);
+    */
+    Scale9Sprite* spBtnStart = Scale9Sprite::create("start_btn.png");
+    ControlButton* btnStart_ = ControlButton::create(spBtnStart);
+    btnStart_->setPreferredSize(spBtnStart->getPreferredSize());
+    btnStart_->setPosition(Point(BSWinSize().width/2,BSWinSize().height/2));
+    btnStart_->addTargetWithActionForControlEvents(this, cccontrol_selector(LayerGame::callbackStart), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
+    
+    layer1->addChild(btnStart_,100);
+
     
     _spRuner = nullptr;
     m_pSpriteBatchNode = nullptr;
@@ -83,7 +98,6 @@ bool LayerGame::init()
     
     CCLOG("%f,%f (2) %f,%f",_spGround1->getPositionX(),_spGround1->getPositionY(),_spGround2->getPositionX(),_spGround2->getPositionY());
     
-    start();
     return true;
 }
 
@@ -106,9 +120,11 @@ void LayerGame::onExit()
     CCLayer::onExit();
 }
 
-void LayerGame::callbackStart(Ref* obj)
+void LayerGame::callbackStart(Ref* obj,cocos2d::extension::Control::EventType type)
 {
-    //PlayVideo::playVideo("opening_video.mp4",(CCLayer*)this);
+    ((MenuItemSprite*)obj)->setVisible(false);
+    start();
+
 }
 
 void LayerGame::start(Ref* pSender)
@@ -257,7 +273,7 @@ void LayerGame::addBlockType()
 
 Point  LayerGame::getDefaultPos()
 {
-    return Point(BSWinSize().width,288);
+    return Point(BSWinSize().width,290);
 }
 
 void LayerGame::updateGround(float fDelta)
@@ -272,8 +288,8 @@ void LayerGame::updateGround(float fDelta)
             child->removeFromParentAndCleanup(true);
         }
     }
-    _spGround1->setPosition(_spGround1->getPosition()+ Point(-8,0));
-    _spGround2->setPosition(_spGround2->getPosition()+ Point(-8,0));
+    _spGround1->setPosition(_spGround1->getPosition()+ Point(-10,0));
+    _spGround2->setPosition(_spGround2->getPosition()+ Point(-10,0));
     
     if (_spGround1->getPositionX()< -BSWinSize().width) {
         _spGround1->setPositionX(_spGround2->getPositionX()+_spGround2->getContentSize().width);
