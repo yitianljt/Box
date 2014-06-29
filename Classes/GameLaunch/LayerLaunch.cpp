@@ -9,8 +9,7 @@
 #include "LayerLaunch.h"
 #include "GameControl.h"
 #include "cocos-ext.h"
-#include "UILayout.h"
-#include "CCSGUIReader.h"
+//#include "CCSGUIReader.h"
 #include "ShowYouAd.h"
 
 USING_NS_CC;
@@ -60,10 +59,10 @@ bool LayerLaunch::init()
     return true;
 }
 
-void LayerLaunch::touchCallBack(CCObject *pSender, cocos2d::ui::TouchEventType type)
-{
-    CCLOG("touchEvent");
-}
+//void LayerLaunch::touchCallBack(CCObject *pSender, cocos2d::ui::TouchEventType type)
+//{
+//    CCLOG("touchEvent");
+//}
 
 void LayerLaunch::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, bool transformUpdated)
 {
